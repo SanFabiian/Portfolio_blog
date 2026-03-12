@@ -1,4 +1,11 @@
-@forward "./primitives/spacing.scss";
-@forward "./primitives/colors.scss";
-@forward "./primitives/radius.scss";
-@forward "./primitives/typography.scss";
+// =============================================================================
+// abstracts/_index.scss
+// Aggregates all primitive tokens via @forward.
+// Rule: @forward only — never @use here.
+// Consumers should always import styles/index.scss, not this file directly.
+// =============================================================================
+
+@forward "./primitives/spacing";
+@forward "./primitives/colors";
+@forward "./primitives/radius";
+@forward "./primitives/typography";

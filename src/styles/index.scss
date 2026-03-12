@@ -1,3 +1,15 @@
-@forward "./abstracts/index.scss";
-@forward "./variables";
-@forward "./mixins";
+// =============================================================================
+// styles/index.scss
+// Single entry point for all components.
+//
+// Usage in every component module:
+//   @use "../../../styles/index" as *;
+//   (adjust the relative path based on component depth)
+//
+// Rule: @forward only — never @use here.
+// Order matters: primitives → semantic tokens → mixins
+// =============================================================================
+
+@forward "./abstracts/index";  // $Space-*, $c-*, $Border-Radius-*, $Font-*
+@forward "./variables";         // $Colors-*, $Component-*, $Padding-*
+@forward "./mixins";            // boxShadow(), focusRing(), truncate(), etc.

@@ -1,9 +1,15 @@
-@use "./spacing.scss" as *;
+// =============================================================================
+// Border radius tokens
+// No dependencies — literal values only.
+// FIX: previously used @use of _spacing.scss which broke the @forward chain.
+//      Sass does not re-export @use'd symbols through @forward.
+//      Values mirror the spacing scale for consistency.
+// =============================================================================
 
-$Border-Radius-Zero: $Space-0;
-$Border-Radius-Extra-Small: $Space-1;
-$Border-Radius-Small: $Space-2;
-$Border-Radius-Medium: $Space-3;
-$Border-Radius-Large: $Space-4;
-$Border-Radius-Extra-large: $Space-6;
-$Border-Radius-Pill: $Space-20;
+$Border-Radius-Zero:        0px;   // $Space-0
+$Border-Radius-Extra-Small: 4px;   // $Space-1
+$Border-Radius-Small:       8px;   // $Space-2
+$Border-Radius-Medium:      12px;  // $Space-3
+$Border-Radius-Large:       16px;  // $Space-4
+$Border-Radius-Extra-large: 24px;  // $Space-6
+$Border-Radius-Pill:        80px;  // $Space-20

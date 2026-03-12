@@ -1,11 +1,58 @@
-@use "index" as *;
+// =============================================================================
+// globales.scss
+// Base reset and document-level styles.
+// Imported once in app/layout.tsx — never in components.
+// =============================================================================
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@use "./abstracts/index" as t;
+
+// ─── Reset ────────────────────────────────────────────────────────────────────
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+// ─── Document ─────────────────────────────────────────────────────────────────
+
 html {
-    font-size: 62.5%;
-    background: $c-Grey-50;
+  font-size: 62.5%; // 1rem = 10px
+  background: t.$c-Grey-50;
+}
+
+body {
+  font-family: t.$Font-Family-Base;
+  font-size: t.$Font-Size-Body;
+  line-height: t.$Line-Height-Body;
+  color: t.$c-Grey-950;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ─── Elements ─────────────────────────────────────────────────────────────────
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul,
+ol {
+  list-style: none;
 }
