@@ -1,0 +1,59 @@
+@use "./abstracts/index.scss" as *;
+
+// Primary Colors
+$Colors-Primary-Default: $c-Sea-800;
+$Colors-Primary-Light: $c-Sea-300;
+$Colors-Primary-Dark: $c-Sea-950;
+$Colors-Secondary-Default: $c-Sand-300;
+$Colors-Secondary-Light: $c-Sand-100;
+$Colors-Secondary-Dark: $c-Sand-500;
+$Colors-Success-Default: $c-Green-400;
+$Colors-Success-Light: $c-Green-100;
+$Colors-Success-Dark: $c-Green-600;
+$Colors-Info-Default: $c-Blue-400;
+$Colors-Info-Light: $c-Blue-100;
+$Colors-Info-Dark: $c-Blue-600;
+$Colors-Error-Default: $c-Red-400;
+$Colors-Error-Light: $c-Red-100;
+$Colors-Error-Dark: $c-Red-600;
+$Colors-Warning-Default: $c-Orange-400;
+$Colors-Warning-Light: $c-Orange-100;
+$Colors-Warning-Dark: $c-Orange-700;
+$Colors-Grey-Default: $c-Grey-700;
+$Colors-Grey-Light: $c-Grey-0;
+$Colors-Grey-Dark: $c-Grey-1000;
+
+// UI Colors
+$Colors-UI-Background: $c-Blue-50;
+$Colors-UI-Text: $c-Grey-950;
+$Colors-UI-Title: $Colors-Primary-Default;
+
+// Component Colors
+/* Button */
+$Component-Button-Primary-Background: $Colors-Primary-Default;
+$Component-Button-Primary-Text: $Colors-Grey-Light;
+$Component-Button-Primary-Border: $Colors-Primary-Default;
+$Component-Button-Primary-Border-Hover: $Colors-Primary-Light;
+$Component-Button-Primary-Border-Active: $Colors-Primary-Dark;
+$Component-Button-Primary-Border-Focus: $Colors-Primary-Light;
+$Component-Button-Primary-Border-Focus-Active: $Colors-Primary-Dark;
+$Component-Button-Primary-Border-Focus-Active-Hover: $Colors-Primary-Light;
+
+$Component-Button-Secondary-Background: $Colors-Secondary-Light;
+$Component-Button-Secondary-Text: $Colors-Grey-Dark;
+$Component-Button-Secondary-Border: $Colors-Secondary-Default;
+$Component-Button-Secondary-Border-Hover: $Colors-Secondary-Light;
+$Component-Button-Secondary-Border-Active: $Colors-Secondary-Dark;
+$Component-Button-Secondary-Border-Focus: $Colors-Secondary-Light;
+$Component-Button-Secondary-Border-Focus-Active: $Colors-Secondary-Dark;
+$Component-Button-Secondary-Border-Focus-Active-Hover: $Colors-Secondary-Light;
+
+// Border Radius (from primitives/radius)
+// Uses $Border-Radius-* from abstracts/primitives/_radius.scss
+
+// Padding
+$Padding-Extra-Small: $Space-1;
+$Padding-Small: $Space-2;
+$Padding-Medium: $Space-3;
+$Padding-Large: $Space-4;
+$Padding-Extra-large: $Space-6;

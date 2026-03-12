@@ -1,0 +1,39 @@
+@use "../../../styles/index" as *;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $Space-4 0;
+}
+.content {
+  border-radius: $Border-Radius-Pill;
+  background: $c-Grey-0;
+  padding: $Padding-Small $Padding-Extra-large;
+  @include boxShadow;
+}
+.logo {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: $Space-6;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  font-size: $Font-Size-Body;
+  font-weight: $Font-Weight-Medium;
+  color: $Colors-UI-Text;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $Colors-Primary-Default;
+  }
+}

@@ -1,0 +1,6 @@
+@use "./variables" as *;
+@use "./abstracts/index.scss" as *;
+
+@mixin boxShadow {
+    box-shadow: 0px 2px 4px 0 $c-Blue-100;
+}

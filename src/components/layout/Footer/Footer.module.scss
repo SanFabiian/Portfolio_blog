@@ -1,0 +1,42 @@
+@use "../../../styles/index" as *;
+
+.footer {
+  margin-top: auto;
+  padding: $Space-8 0;
+  border-top: 1px solid $c-Grey-200;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $Space-4;
+}
+
+.logo {
+  display: inline-flex;
+}
+
+.copyright {
+  font-size: $Font-Size-Small;
+  color: $c-Grey-600;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: $Space-6;
+
+  a {
+    font-size: $Font-Size-Small;
+    color: $c-Grey-600;
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $Colors-Primary-Default;
+    }
+  }
+}

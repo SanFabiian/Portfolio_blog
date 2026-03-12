@@ -1,0 +1,52 @@
+@use "../../../styles/index" as *;
+
+.text {
+  font-family: $Font-Family-Base;
+  margin: 0;
+}
+
+/* Variants – typography tokens */
+.body {
+  font-size: $Font-Size-Body;
+  line-height: $Line-Height-Body;
+}
+
+.small {
+  font-size: $Font-Size-Small;
+  line-height: $Line-Height-Small;
+}
+
+.caption {
+  font-size: $Font-Size-Caption;
+  line-height: $Line-Height-Small;
+}
+
+/* Font weight */
+.weight-regular {
+  font-weight: $Font-Weight-Regular;
+}
+
+.weight-medium {
+  font-weight: $Font-Weight-Medium;
+}
+
+.weight-bold {
+  font-weight: $Font-Weight-Bold;
+}
+
+/* Color variants – design tokens */
+.color-default {
+  color: $Colors-UI-Text;
+}
+
+.color-muted {
+  color: $Colors-Grey-Default;
+}
+
+.color-primary {
+  color: $Colors-Primary-Default;
+}
+
+.color-inherit {
+  color: inherit;
+}

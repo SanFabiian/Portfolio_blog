@@ -1,0 +1,37 @@
+@use "../../../styles/index" as *;
+
+.heading {
+  font-family: $Font-Family-Base;
+  font-weight: $Font-Weight-Bold;
+  color: $Colors-UI-Title;
+  margin: 0;
+}
+
+/* Levels – typography tokens (H1 48px, H2 32px, H3 24px) */
+.h1 {
+  font-size: $Font-Size-H1;
+  line-height: $Line-Height-H1;
+}
+
+.h2 {
+  font-size: $Font-Size-H2;
+  line-height: $Line-Height-H2;
+}
+
+.h3 {
+  font-size: $Font-Size-H3;
+  line-height: $Line-Height-H3;
+}
+
+/* Alignment */
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}

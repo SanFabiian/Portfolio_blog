@@ -1,0 +1,47 @@
+.stack {
+    display: flex;
+  }
+  
+  .row {
+    flex-direction: row;
+  }
+  
+  .column {
+    flex-direction: column;
+  }
+  
+  .gap-sm {
+    gap: 0.5rem;
+  }
+  
+  .gap-md {
+    gap: 1.6rem;
+  }
+  
+  .gap-lg {
+    gap: 2rem;
+  }
+  
+  .align-start {
+    align-items: flex-start;
+  }
+  
+  .align-center {
+    align-items: center;
+  }
+  
+  .align-end {
+    align-items: flex-end;
+  }
+  
+  .justify-start {
+    justify-content: flex-start;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
