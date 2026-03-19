@@ -1,47 +1,32 @@
+@use "../../../styles/index" as *;
+
 .stack {
-    display: flex;
-  }
-  
-  .row {
-    flex-direction: row;
-  }
-  
-  .column {
-    flex-direction: column;
-  }
-  
-  .gap-sm {
-    gap: 0.5rem;
-  }
-  
-  .gap-md {
-    gap: 1.6rem;
-  }
-  
-  .gap-lg {
-    gap: 2rem;
-  }
-  
-  .align-start {
-    align-items: flex-start;
-  }
-  
-  .align-center {
-    align-items: center;
-  }
-  
-  .align-end {
-    align-items: flex-end;
-  }
-  
-  .justify-start {
-    justify-content: flex-start;
-  }
-  
-  .justify-center {
-    justify-content: center;
-  }
-  
-  .justify-between {
-    justify-content: space-between;
-  }
+  display: flex;
+}
+
+// Direction
+.row    { flex-direction: row; }
+.column { flex-direction: column; }
+
+// Gap — using spacing tokens, no hardcoded values
+.gap-xs { gap: $Space-1; }  // 4px
+.gap-sm { gap: $Space-2; }  // 8px
+.gap-md { gap: $Space-4; }  // 16px
+.gap-lg { gap: $Space-6; }  // 24px
+.gap-xl { gap: $Space-8; }  // 32px
+
+// Align
+.align-start  { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end    { align-items: flex-end; }
+.align-stretch { align-items: stretch; }
+
+// Justify
+.justify-start   { justify-content: flex-start; }
+.justify-center  { justify-content: center; }
+.justify-end     { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+
+// Wrap
+.wrap   { flex-wrap: wrap; }
+.nowrap { flex-wrap: nowrap; }

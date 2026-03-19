@@ -1,0 +1,40 @@
+@use "../../../styles/index" as *;
+
+.grid {
+  display: grid;
+  width: 100%;
+  align-items: flex-start;
+}
+
+// Gap scale
+.gap-sm { gap: $Space-4; }   // 16px
+.gap-md { gap: $Space-6; }   // 24px
+.gap-lg { gap: $Space-8; }   // 32px
+
+// Base columns (mobile-first)
+.cols-1  { grid-template-columns: repeat(1,  minmax(0, 1fr)); }
+.cols-2  { grid-template-columns: repeat(2,  minmax(0, 1fr)); }
+.cols-3  { grid-template-columns: repeat(3,  minmax(0, 1fr)); }
+.cols-4  { grid-template-columns: repeat(4,  minmax(0, 1fr)); }
+.cols-6  { grid-template-columns: repeat(6,  minmax(0, 1fr)); }
+.cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+// md breakpoint overrides (≥768px)
+@include md {
+  .cols-md-1  { grid-template-columns: repeat(1,  minmax(0, 1fr)); }
+  .cols-md-2  { grid-template-columns: repeat(2,  minmax(0, 1fr)); }
+  .cols-md-3  { grid-template-columns: repeat(3,  minmax(0, 1fr)); }
+  .cols-md-4  { grid-template-columns: repeat(4,  minmax(0, 1fr)); }
+  .cols-md-6  { grid-template-columns: repeat(6,  minmax(0, 1fr)); }
+  .cols-md-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}
+
+// lg breakpoint overrides (≥1024px)
+@include lg {
+  .cols-lg-1  { grid-template-columns: repeat(1,  minmax(0, 1fr)); }
+  .cols-lg-2  { grid-template-columns: repeat(2,  minmax(0, 1fr)); }
+  .cols-lg-3  { grid-template-columns: repeat(3,  minmax(0, 1fr)); }
+  .cols-lg-4  { grid-template-columns: repeat(4,  minmax(0, 1fr)); }
+  .cols-lg-6  { grid-template-columns: repeat(6,  minmax(0, 1fr)); }
+  .cols-lg-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}

@@ -1,0 +1,18 @@
+@use "../../../styles/index" as *;
+
+.footerContent {
+  display: flex;
+  align-items: center;
+  gap: $Space-2;
+}
+
+.date,
+.readingTime {
+  font-size: $Font-Size-Caption;
+  color: $c-Grey-500;
+}
+
+.dot {
+  font-size: $Font-Size-Caption;
+  color: $c-Grey-400;
+}

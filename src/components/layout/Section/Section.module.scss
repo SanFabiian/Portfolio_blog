@@ -1,0 +1,11 @@
+@use "../../../styles/index" as *;
+
+.section {
+  width: 100%;
+}
+
+// Vertical padding scale
+.spacing-sm { padding-block: $Space-8;  }  // 32px
+.spacing-md { padding-block: $Space-12; }  // 48px
+.spacing-lg { padding-block: $Space-16; }  // 64px
+.spacing-xl { padding-block: $Space-20; }  // 80px

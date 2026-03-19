@@ -16,3 +16,16 @@
   color: $Colors-UI-Text;
   margin: 0;
 }
+
+// Playground section label
+.sectionLabel {
+  display: inline-block;
+  font-size: $Font-Size-Caption;
+  font-weight: $Font-Weight-SemiBold;
+  color: $c-Grey-500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-left: 2px solid $Colors-Primary-Default;
+  padding-left: $Space-2;
+  margin-bottom: $Space-4;
+}

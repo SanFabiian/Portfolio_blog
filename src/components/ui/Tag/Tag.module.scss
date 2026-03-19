@@ -1,0 +1,15 @@
+@use "../../../styles/index" as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: $Space-1 $Space-2;
+  border-radius: $Border-Radius-Extra-Small;
+  border: 1px solid $c-Grey-200;
+  background: $c-Grey-50;
+  color: $c-Grey-700;
+  font-size: $Font-Size-Caption;
+  font-weight: $Font-Weight-Medium;
+  line-height: 1;
+  white-space: nowrap;
+}

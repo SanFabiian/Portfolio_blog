@@ -1,0 +1,104 @@
+@use "../../../styles/index" as *;
+
+// Wrapper owns the hover — card + footer move together
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: $Border-Radius-Small;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid $c-Grey-200;
+  background: $Colors-Grey-Light;
+  border-radius: $Border-Radius-Small;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+}
+
+// Link wraps only the card
+.link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+// Card — no hover, wrapper handles it
+.card {
+  overflow: hidden;
+  // Remove bottom radius when footer is present — footer continues the shape
+  &:has(~ .footer) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+  }
+}
+
+// Cover image
+.cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: $c-Grey-100;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  .wrapper:hover & {
+    transform: scale(1.03);
+  }
+}
+
+// Body
+.body {
+  padding: $Space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $Space-3;
+}
+
+// Meta slot
+.meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $Space-2;
+}
+
+// Title
+.title {
+  font-size: $Font-Size-H3;
+  font-weight: $Font-Weight-SemiBold;
+  color: $Colors-UI-Title;
+  margin: 0;
+  transition: color 0.15s ease;
+
+  .wrapper:hover & {
+    color: $Colors-Primary-Default;
+  }
+}
+
+// Description
+.description {
+  font-size: $Font-Size-Body;
+  color: $Colors-UI-Text;
+  line-height: $Line-Height-Body;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Footer — outside link, continues card visually
+.footer {
+  display: flex;
+  align-items: center;
+  gap: $Space-4;
+  padding: $Space-3 $Space-5;
+}

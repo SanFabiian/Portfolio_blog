@@ -1,0 +1,18 @@
+@use "../../../styles/index" as *;
+
+.actions {
+  display: flex;
+  gap: $Space-4;
+}
+
+.actionLink {
+  font-size: $Font-Size-Small;
+  font-weight: $Font-Weight-Medium;
+  color: $Colors-Primary-Default;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $Colors-Primary-Dark;
+  }
+}
