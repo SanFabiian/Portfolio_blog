@@ -1,0 +1,97 @@
+@use "../../../styles/index" as *;
+
+// Editor window
+.window {
+  width: 100%;
+  border-radius: $Border-Radius-Medium;
+  border: 1px solid $c-Grey-200;
+  background: $c-Grey-950;
+  overflow: hidden;
+  font-family: "Fira Code", "Cascadia Code", "Consolas", monospace;
+}
+
+// Title bar
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: $Space-2;
+  padding: $Space-3 $Space-4;
+  background: $c-Grey-1000;
+  border-bottom: 1px solid $c-Grey-800;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  &[data-color="red"]    { background: #FF5F57; }
+  &[data-color="yellow"] { background: #FFBD2E; }
+  &[data-color="green"]  { background: #28C840; }
+}
+
+.filename {
+  margin-left: $Space-2;
+  font-size: $Font-Size-Caption;
+  color: $c-Grey-500;
+}
+
+// Code area
+.body {
+  padding: $Space-4 0;
+  min-height: 320px;
+}
+
+.pre {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+// Single line
+.line {
+  display: flex;
+  gap: $Space-4;
+  padding: 0 $Space-4;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.lineNumber {
+  min-width: 20px;
+  text-align: right;
+  color: $c-Grey-700;
+  font-size: 12px;
+  user-select: none;
+  padding-top: 1px;
+}
+
+.lineText {
+  flex: 1;
+}
+
+// Blinking cursor
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: $c-Sea-400;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+// Syntax colors
+.keyword { color: #79C0FF; }  // blue  — import, const, export
+.string  { color: #A5D6FF; }  // light blue — string values
+.jsx     { color: #7EE787; }  // green — JSX tags
+.default { color: #E6EDF3; }  // off-white — default text

@@ -1,6 +1,75 @@
-@use "../styles/abstracts/index" as *;
+@use "../styles/index" as *;
 
-.page {
-  padding: $Space-10;
+// ─── Hero ─────────────────────────────────────────────────────────────────────
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $Space-12;
+  align-items: center;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    gap: $Space-16;
+  }
 }
 
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: $Space-6;
+}
+
+.heroEyebrow {
+  font-size: $Font-Size-Small;
+  font-weight: $Font-Weight-Medium;
+  color: $Colors-Primary-Default;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.heroHeading {
+  font-size: clamp(32px, 5vw, 56px) !important;
+  line-height: 1.1 !important;
+}
+
+.heroDescription {
+  font-size: $Font-Size-Body;
+  line-height: $Line-Height-Body;
+  max-width: 480px;
+}
+
+.heroCode {
+  width: 100%;
+
+  @include lg {
+    // Slight offset for visual balance
+    margin-top: $Space-4;
+  }
+}
+
+// ─── Section header ───────────────────────────────────────────────────────────
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $Space-4;
+  margin-bottom: $Space-8;
+}
+
+// ─── CTA ──────────────────────────────────────────────────────────────────────
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $Space-5;
+  padding: $Space-16 $Space-6;
+  border-radius: $Border-Radius-Large;
+  border: 1px solid $c-Grey-200;
+  background: $c-Grey-50;
+}

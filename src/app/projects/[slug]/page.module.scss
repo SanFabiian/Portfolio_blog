@@ -1,0 +1,61 @@
+@use "../../../styles/index" as *;
+
+// Back link
+.back {
+  margin-bottom: $Space-8;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $Space-2;
+  font-size: $Font-Size-Small;
+  font-weight: $Font-Weight-Medium;
+  color: $c-Grey-500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $Colors-Primary-Default;
+  }
+}
+
+// Header
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $Space-4;
+  margin-bottom: $Space-10;
+}
+
+// Cover image
+.cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: $Border-Radius-Medium;
+  overflow: hidden;
+  margin-bottom: $Space-10;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: $Border-Radius-Medium;
+  background: $c-Grey-100;
+  border: 1px dashed $c-Grey-300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $Space-10;
+}
+
+// Content body
+.content {
+  max-width: 720px;
+}

@@ -1,31 +1,8 @@
 @use "../../styles/index" as *;
 
-.page {
-  padding: $Space-10 0;
-}
-
-.title {
-  font-size: $Font-Size-H1;
-  font-weight: $Font-Weight-Bold;
-  color: $Colors-UI-Title;
-  margin: 0 0 $Space-4;
-}
-
-.subtitle {
-  font-size: $Font-Size-Body;
-  color: $Colors-UI-Text;
-  margin: 0;
-}
-
-// Playground section label
-.sectionLabel {
-  display: inline-block;
-  font-size: $Font-Size-Caption;
-  font-weight: $Font-Weight-SemiBold;
-  color: $c-Grey-500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-left: 2px solid $Colors-Primary-Default;
-  padding-left: $Space-2;
-  margin-bottom: $Space-4;
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $Space-3;
+  margin-bottom: $Space-10;
 }

@@ -1,18 +1,8 @@
 @use "../../styles/index" as *;
 
-.page {
-  padding: $Space-10 0;
-}
-
-.title {
-  font-size: $Font-Size-H1;
-  font-weight: $Font-Weight-Bold;
-  color: $Colors-UI-Title;
-  margin: 0 0 $Space-4;
-}
-
-.subtitle {
-  font-size: $Font-Size-Body;
-  color: $Colors-UI-Text;
-  margin: 0;
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $Space-3;
+  margin-bottom: $Space-10;
 }
