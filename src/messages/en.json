@@ -36,7 +36,7 @@
       "min_read": "min read"
     },
     "about": {
-      "heading": "About",
-      "description": "Web designer and developer with a passion for creating beautiful and functional websites."
+      "bio_heading": "About me",
+      "skills_heading": "Skills & Technologies"
     }
   }

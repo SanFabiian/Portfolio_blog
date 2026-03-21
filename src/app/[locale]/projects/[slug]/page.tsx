@@ -9,6 +9,7 @@ import { Text } from "@/components/ui/Text";
 import { Badge } from "@/components/ui/Badge";
 import { Tag } from "@/components/ui/Tag";
 import { Button } from "@/components/ui/Button";
+import { PortableText } from "@/components/ui/PortableText/PortableText";
 import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import { getProjectBySlug, getProjects } from "@/services/sanity";
 import styles from "./page.module.scss";
@@ -26,8 +27,15 @@ export async function generateMetadata({
   const project = await getProjectBySlug(slug, locale);
   if (!project) return {};
   return {
-    title: `${project.title} | SanFabiian`,
+    title: project.title,
     description: project.description,
+    alternates: {
+      canonical: `/${locale}/projects/${slug}`,
+      languages: {
+        "en": `/en/projects/${slug}`,
+        "es": `/es/projects/${slug}`,
+      },
+    },
   };
 }
 
@@ -98,7 +106,11 @@ export default async function ProjectDetailPage({
           </div>
         )}
         <div className={styles.content}>
-          <Text variant="secondary">{t("content_soon")}</Text>
+          {project.content ? (
+            <PortableText value={project.content} />
+          ) : (
+            <Text variant="secondary">{t("content_soon")}</Text>
+          )}
         </div>
       </Section>
     </Container>

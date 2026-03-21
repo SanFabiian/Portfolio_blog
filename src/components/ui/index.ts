@@ -10,6 +10,7 @@ export { ProjectCard }  from "./ProjectCard";
 export { Spinner }      from "./Spinner";
 export { Tag }          from "./Tag";
 export { Text }         from "./Text";
+export { PortableText } from "./PortableText"
 
 export type { CardProps }         from "./Card";
 export type { ContentCardProps }  from "./ContentCard";

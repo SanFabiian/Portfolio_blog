@@ -36,7 +36,7 @@
       "min_read": "min de lectura"
     },
     "about": {
-      "heading": "Acerca de",
-      "description": "Diseñador web y desarrollador con pasión por crear sitios web hermosos y funcionales."
+      "bio_heading": "Sobre mí",
+      "skills_heading": "Habilidades y Tecnologías"
     }
   }

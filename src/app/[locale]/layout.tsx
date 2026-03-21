@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 import "@/styles/globales.scss";
 import "@/styles/index.scss";
 import { Navbar, Footer } from "@/components/layout";
@@ -9,6 +10,29 @@ import { Container } from "@/components/layout/Container";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
+  return {
+    title: {
+      default: "SanFabiian",
+      template: "%s | SanFabiian",
+    },
+    description: t("description"),
+    metadataBase: new URL("https://sanfabiian.com"),
+    alternates: {
+      canonical: "/",
+      languages: {
+        "en": "/en",
+        "es": "/es",
+      },
+    },
+  };
 }
 
 export default async function LocaleLayout({

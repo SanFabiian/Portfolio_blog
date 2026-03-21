@@ -7,6 +7,7 @@ import { Stack } from "@/components/layout/Stack";
 import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { Tag } from "@/components/ui/Tag";
+import { PortableText } from "@/components/ui/PortableText/PortableText";
 import { ArrowLeft } from "lucide-react";
 import { getPostBySlug, getPosts } from "@/services/sanity";
 import styles from "./page.module.scss";
@@ -25,8 +26,15 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug, locale);
   if (!post) return {};
   return {
-    title: `${post.title} | SanFabiian`,
+    title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: `/${locale}/blog/${slug}`,
+      languages: {
+        "en": `/en/blog/${slug}`,
+        "es": `/es/blog/${slug}`,
+      },
+    },
   };
 }
 
@@ -88,7 +96,11 @@ export default async function BlogPostPage({
           </div>
         )}
         <div className={styles.content}>
-          <Text variant="secondary">{t("content_soon")}</Text>
+          {post.content ? (
+            <PortableText value={post.content} />
+          ) : (
+            <Text variant="secondary">{t("content_soon")}</Text>
+          )}
         </div>
       </Section>
     </Container>

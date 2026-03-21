@@ -8,12 +8,13 @@ export interface Tag {
   slug: string;
 }
 
-export type ProjectCategory = "ux" | "frontend" | "fullstack";
+import type { PortableTextBlock } from "sanity";
 
 export interface Project {
   slug: string;
   title: string;
   description: string;
+  content?: PortableTextBlock[];
   category: Category;
   image?: string;
   tags?: Tag[];

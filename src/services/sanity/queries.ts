@@ -25,6 +25,7 @@ export const projectBySlugQuery = `
     "slug": slug.current,
     "title": select($locale == "es" => title_es, title_en),
     "description": select($locale == "es" => description_es, description_en),
+    "content": select($locale == "es" => content_es, content_en),
     "category": category->{ 
       "label": select($locale == "es" => label_es, label_en), 
       "slug": slug.current 
@@ -125,5 +126,21 @@ export const latestPostsQuery = `
     publishedAt,
     updatedAt,
     author
+  }
+`;
+
+export const aboutQuery = `
+  *[_type == "about"][0] {
+    "heading": select($locale == "es" => heading_es, heading_en),
+    "bio": select($locale == "es" => bio_es, bio_en),
+    "role": select($locale == "es" => role_es, role_en),
+    "avatar": avatar.asset->url,
+    email,
+    github,
+    linkedin,
+    "skills": skills[defined(@->_id)]->{
+      "label": select($locale == "es" => label_es, label_en),
+      "slug": slug.current
+    }
   }
 `;

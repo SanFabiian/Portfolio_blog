@@ -39,7 +39,18 @@ export const projectSchema = defineType({
       type: "text",
       validation: (r) => r.required(),
     }),
-
+    defineField({
+      name: "content_en",
+      title: "Content (English)",
+      type: "array",
+      of: [{ type: "block" }],
+    }),
+    defineField({
+      name: "content_es",
+      title: "Content (Spanish)",
+      type: "array",
+      of: [{ type: "block" }],
+    }),
     // ── Taxonomías (referencias globales) ────────────
     defineField({
       name: "category",

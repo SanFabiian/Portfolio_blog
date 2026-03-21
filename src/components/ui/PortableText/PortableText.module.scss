@@ -1,0 +1,54 @@
+@use "../../../styles/index" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: $Space-4;
+}
+
+.paragraph {
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+.h1 { font-size: 2rem; font-weight: 700; }
+.h2 { font-size: 1.5rem; font-weight: 700; }
+.h3 { font-size: 1.25rem; font-weight: 600; }
+
+.blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: $Space-4;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.inlineCode {
+  background: var(--color-surface);
+  padding: 0.1em 0.4em;
+  border-radius:$Border-Radius-Small;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.link {
+  color: var(--color-primary);
+  text-decoration: underline;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.ul {
+  list-style: disc;
+  padding-left: $Space-6;
+}
+
+.ol {
+  list-style: decimal;
+  padding-left: $Space-6;
+}
+
+.li {
+  line-height: 1.75;
+}

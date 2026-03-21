@@ -33,3 +33,16 @@ export default async function ProjectsPage({
     </Container>
   );
 }
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "projects" });
+  return {
+    title: `${t("heading")} | SanFabiian`,
+    description: t("description"),
+  };
+}
