@@ -15,7 +15,7 @@ export default async function ProjectsPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "projects" });
-  const projects = await getProjects();
+  const projects = await getProjects(locale);
 
   return (
     <Container as="main">

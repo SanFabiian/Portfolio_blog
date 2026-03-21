@@ -5,49 +5,62 @@ export const projectSchema = defineType({
   title: "Project",
   type: "document",
   fields: [
-    defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
-      validation: (r) => r.required(),
-    }),
+    // ── Slug ─────────────────────────────────────────
     defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "title" },
+      options: { source: "title_en" },
+      validation: (r) => r.required(),
+    }),
+
+    // ── Campos traducibles ───────────────────────────
+    defineField({
+      name: "title_en",
+      title: "Title (English)",
+      type: "string",
       validation: (r) => r.required(),
     }),
     defineField({
-      name: "description",
-      title: "Description",
+      name: "title_es",
+      title: "Title (Spanish)",
+      type: "string",
+      validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "description_en",
+      title: "Description (English)",
       type: "text",
       validation: (r) => r.required(),
     }),
     defineField({
-      name: "category",
-      title: "Category",
-      type: "string",
-      options: {
-        list: [
-          { title: "UX", value: "ux" },
-          { title: "Frontend", value: "frontend" },
-          { title: "Fullstack", value: "fullstack" },
-        ],
-      },
+      name: "description_es",
+      title: "Description (Spanish)",
+      type: "text",
       validation: (r) => r.required(),
     }),
+
+    // ── Taxonomías (referencias globales) ────────────
     defineField({
-      name: "image",
-      title: "Image",
-      type: "image",
-      options: { hotspot: true },
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: [{ type: "category" }],
+      validation: (r) => r.required(),
     }),
     defineField({
       name: "tags",
       title: "Tags",
       type: "array",
-      of: [{ type: "string" }],
+      of: [{ type: "reference", to: [{ type: "tag" }] }],
+    }),
+
+    // ── Campos globales ──────────────────────────────
+    defineField({
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: { hotspot: true },
     }),
     defineField({
       name: "link",
@@ -76,4 +89,7 @@ export const projectSchema = defineType({
       type: "datetime",
     }),
   ],
+  preview: {
+    select: { title: "title_en", subtitle: "category.label_en" },
+  },
 });

@@ -22,8 +22,8 @@ export default async function HomePage({
   const t = await getTranslations({ locale, namespace: "home" });
 
   const [featuredProjects, latestPosts] = await Promise.all([
-    getFeaturedProjects(),
-    getLatestPosts(),
+    getFeaturedProjects(locale),
+    getLatestPosts(locale),
   ]);
 
   return (

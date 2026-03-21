@@ -11,52 +11,29 @@ export interface ProjectCardProps {
   className?: string;
 }
 
-const categoryLabel: Record<string, string> = {
-  ux:        "UX Design",
-  frontend:  "Frontend",
-  fullstack: "Fullstack",
-};
-
-const categoryBadge: Record<string, "info" | "success" | "warning"> = {
-  ux:        "info",
-  frontend:  "success",
-  fullstack: "warning",
-};
-
 export function ProjectCard({ project, className }: ProjectCardProps) {
   const meta = (
     <>
       {project.category && (
-        <Badge variant={categoryBadge[project.category] ?? "info"}>
-          {categoryLabel[project.category] ?? project.category}
+        <Badge variant="default">
+          {project.category.label}
         </Badge>
       )}
-      {project.tags?.slice(0, 3).map((tag) => (
-        <Tag key={tag}>{tag}</Tag>
+      {project.tags?.filter(Boolean).slice(0, 3).map((tag) => (
+        <Tag key={tag.slug}>{tag.label}</Tag>
       ))}
     </>
   );
 
-  // Plain <a> tags — safe here because footer renders outside <Link>
   const footer = (project.github || project.link) ? (
     <div className={styles.actions}>
       {project.github && (
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.actionLink}
-        >
+        <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.actionLink}>
           GitHub →
         </a>
       )}
       {project.link && (
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.actionLink}
-        >
+        <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.actionLink}>
           Live →
         </a>
       )}

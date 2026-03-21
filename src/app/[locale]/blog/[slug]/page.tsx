@@ -12,17 +12,17 @@ import { getPostBySlug, getPosts } from "@/services/sanity";
 import styles from "./page.module.scss";
 
 export async function generateStaticParams() {
-  const posts = await getPosts();
+  const posts = await getPosts("en");
   return posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const { slug, locale } = await params;
+  const post = await getPostBySlug(slug, locale);
   if (!post) return {};
   return {
     title: `${post.title} | SanFabiian`,
@@ -36,7 +36,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string; locale: string }>;
 }) {
   const { slug, locale } = await params;
-  const post = await getPostBySlug(slug);
+  const post = await getPostBySlug(slug, locale);
   if (!post) notFound();
 
   const t = await getTranslations({ locale, namespace: "blog" });
@@ -62,7 +62,7 @@ export default async function BlogPostPage({
           {post.tags && post.tags.length > 0 && (
             <Stack direction="row" gap="sm" wrap="wrap">
               {post.tags.map((tag) => (
-                <Tag key={tag}>{tag}</Tag>
+                <Tag key={tag.slug}>{tag.label}</Tag>
               ))}
             </Stack>
           )}

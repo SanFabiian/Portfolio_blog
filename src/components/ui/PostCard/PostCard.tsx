@@ -1,4 +1,5 @@
 import { ContentCard } from "@/components/ui/ContentCard";
+import { Badge } from "@/components/ui/Badge";
 import { Tag } from "@/components/ui/Tag";
 import type { Post } from "@/types";
 import styles from "./PostCard.module.scss";
@@ -9,13 +10,18 @@ export interface PostCardProps {
 }
 
 export function PostCard({ post, className }: PostCardProps) {
-  const meta = post.tags?.length ? (
+  const meta = (
     <>
-      {post.tags.slice(0, 2).map((tag) => (
-        <Tag key={tag}>{tag}</Tag>
+      {post.category && (
+        <Badge variant="success">
+          {post.category.label}
+        </Badge>
+      )}
+      {post.tags?.slice(0, 2).map((tag) => (
+        <Tag key={tag.slug}>{tag.label}</Tag>
       ))}
     </>
-  ) : undefined;
+  );
 
   const formattedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString("en-US", {
@@ -27,15 +33,9 @@ export function PostCard({ post, className }: PostCardProps) {
 
   const footer = (formattedDate || post.readingTime) ? (
     <div className={styles.footerContent}>
-      {formattedDate && (
-        <span className={styles.date}>{formattedDate}</span>
-      )}
-      {formattedDate && post.readingTime && (
-        <span className={styles.dot}>·</span>
-      )}
-      {post.readingTime && (
-        <span className={styles.readingTime}>{post.readingTime} min read</span>
-      )}
+      {formattedDate && <span className={styles.date}>{formattedDate}</span>}
+      {formattedDate && post.readingTime && <span className={styles.dot}>·</span>}
+      {post.readingTime && <span className={styles.readingTime}>{post.readingTime} min read</span>}
     </div>
   ) : undefined;
 

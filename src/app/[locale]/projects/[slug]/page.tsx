@@ -13,30 +13,17 @@ import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import { getProjectBySlug, getProjects } from "@/services/sanity";
 import styles from "./page.module.scss";
 
-const categoryLabel: Record<string, string> = {
-  ux: "UX Design",
-  frontend: "Frontend",
-  fullstack: "Fullstack",
-};
-
-const categoryBadge: Record<string, "info" | "success" | "warning"> = {
-  ux: "info",
-  frontend: "success",
-  fullstack: "warning",
-};
-
 export async function generateStaticParams() {
-  const projects = await getProjects();
+  const projects = await getProjects("en");
   return projects.map((p) => ({ slug: p.slug }));
 }
-
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = await params;
-  const project = await getProjectBySlug(slug);
+  const { slug, locale } = await params;
+  const project = await getProjectBySlug(slug, locale);
   if (!project) return {};
   return {
     title: `${project.title} | SanFabiian`,
@@ -50,7 +37,7 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string; locale: string }>;
 }) {
   const { slug, locale } = await params;
-  const project = await getProjectBySlug(slug);
+  const project = await getProjectBySlug(slug, locale);
   if (!project) notFound();
 
   const t = await getTranslations({ locale, namespace: "projects" });
@@ -74,12 +61,14 @@ export default async function ProjectDetailPage({
         </div>
         <div className={styles.header}>
           <Stack direction="row" align="center" gap="sm" wrap="wrap">
-            <Badge variant={categoryBadge[project.category] ?? "info"}>
-              {categoryLabel[project.category] ?? project.category}
+          {project.category && (
+            <Badge variant="info">
+              {project.category.label}
             </Badge>
-            {project.tags?.map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
-            ))}
+          )}
+          {project.tags?.filter(Boolean).map((tag) => (
+            <Tag key={tag.slug}>{tag.label}</Tag>
+          ))}
           </Stack>
           <Heading level="h1">{project.title}</Heading>
           <Text variant="secondary">{project.description}</Text>

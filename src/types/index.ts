@@ -1,2 +1,2 @@
-export type { Project, ProjectCategory } from "./project";
+export type { Project, Category, Tag } from "./project";
 export type { Post } from "./post";
