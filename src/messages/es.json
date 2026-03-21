@@ -1,0 +1,42 @@
+{
+    "nav": {
+      "projects": "Proyectos",
+      "blog": "Blog",
+      "about": "Acerca de"
+    },
+    "home": {
+      "eyebrow": "Diseñador UI/UX & Desarrollador Frontend",
+      "heading": "Creando experiencias digitales de élite con precisión.",
+      "description": "Diseño y construyo productos donde la estética y la ingeniería se encuentran — desde sistemas de diseño hasta aplicaciones full-stack.",
+      "cta_projects": "Ver Proyectos",
+      "cta_blog": "Leer Blog",
+      "selected_work": "Trabajo Seleccionado",
+      "selected_work_desc": "Una mezcla de casos de estudio UX y proyectos frontend.",
+      "all_projects": "Todos los proyectos",
+      "from_blog": "Del Blog",
+      "from_blog_desc": "Pensamientos sobre diseño, frontend y el espacio entre ellos.",
+      "all_posts": "Todos los posts",
+      "cta_heading": "Trabajemos juntos.",
+      "cta_desc": "¿Tienes un proyecto en mente? Estoy disponible para trabajo freelance y colaboraciones.",
+      "cta_button": "Contáctame"
+    },
+    "projects": {
+      "heading": "Proyectos",
+      "description": "Una selección de trabajo en diseño UX y desarrollo frontend.",
+      "back": "Todos los proyectos",
+      "cover_soon": "Portada del proyecto — próximamente",
+      "content_soon": "El contenido completo estará disponible cuando se conecte Sanity CMS."
+    },
+    "blog": {
+      "heading": "Blog",
+      "description": "Pensamientos sobre diseño, desarrollo frontend y el espacio entre ellos.",
+      "back": "Todos los posts",
+      "cover_soon": "Portada del post — próximamente",
+      "content_soon": "El contenido completo estará disponible cuando se conecte Sanity CMS.",
+      "min_read": "min de lectura"
+    },
+    "about": {
+      "heading": "Acerca de",
+      "description": "Diseñador web y desarrollador con pasión por crear sitios web hermosos y funcionales."
+    }
+  }

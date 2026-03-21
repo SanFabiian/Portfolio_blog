@@ -1,8 +1,8 @@
-// Sanity client placeholder – configure when CMS is set up
-// import { createClient } from "next-sanity";
+import { createClient } from "next-sanity";
 
-export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "";
-export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
-
-// TODO: Create client when Sanity is configured
-// export const client = createClient({ projectId, dataset });
+export const client = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
+  apiVersion: "2024-01-01",
+  useCdn: true,
+});

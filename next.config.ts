@@ -1,12 +1,8 @@
 import type { NextConfig } from "next";
-import path from "node:path";
+import createNextIntlPlugin from "next-intl/plugin";
 
-const nextConfig: NextConfig = {
-  sassOptions: {
-    includePaths: [
-      path.join(process.cwd(), "src/styles"),
-    ],
-  },
-};
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
-export default nextConfig;
+const nextConfig: NextConfig = {};
+
+export default withNextIntl(nextConfig);

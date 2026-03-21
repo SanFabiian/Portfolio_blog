@@ -1,6 +1,4 @@
-@use "../styles/index" as *;
-
-// ─── Hero ─────────────────────────────────────────────────────────────────────
+@use "../../styles/index" as *;
 
 .hero {
   display: grid;
@@ -42,14 +40,7 @@
 
 .heroCode {
   width: 100%;
-
-  @include lg {
-    // Slight offset for visual balance
-    margin-top: $Space-4;
-  }
 }
-
-// ─── Section header ───────────────────────────────────────────────────────────
 
 .sectionHeader {
   display: flex;
@@ -59,8 +50,6 @@
   gap: $Space-4;
   margin-bottom: $Space-8;
 }
-
-// ─── CTA ──────────────────────────────────────────────────────────────────────
 
 .cta {
   display: flex;

@@ -1,6 +1,5 @@
-@use "../../../styles/index" as *;
+@use "../../../../styles/index" as *;
 
-// Back link
 .back {
   margin-bottom: $Space-8;
 }
@@ -15,20 +14,17 @@
   text-decoration: none;
   transition: color 0.15s ease;
 
-  &:hover {
-    color: $Colors-Primary-Default;
-  }
+  &:hover { color: $Colors-Primary-Default; }
 }
 
-// Header
 .header {
   display: flex;
   flex-direction: column;
   gap: $Space-4;
   margin-bottom: $Space-10;
+  max-width: 720px;
 }
 
-// Cover image
 .cover {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -55,7 +51,6 @@
   margin-bottom: $Space-10;
 }
 
-// Content body
 .content {
   max-width: 720px;
 }

@@ -52,18 +52,47 @@
 
   &:hover {
     color: $Colors-Primary-Default;
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
+    &::after { transform: scaleX(1); }
   }
 }
 
-// Active route
 .active {
   color: $Colors-Primary-Default;
+  &::after { transform: scaleX(1); }
+}
 
-  &::after {
-    transform: scaleX(1);
+// Locale toggle
+.localeToggle {
+  display: flex;
+  align-items: center;
+  gap: $Space-1;
+  margin-left: $Space-2;
+  padding-left: $Space-4;
+  border-left: 1px solid $c-Grey-200;
+}
+
+.localeBtn {
+  font-size: $Font-Size-Caption;
+  font-weight: $Font-Weight-SemiBold;
+  color: $c-Grey-400;
+  background: none;
+  border: none;
+  padding: $Space-1 $Space-1;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    color: $Colors-Primary-Default;
   }
+}
+
+.localeBtnActive {
+  color: $Colors-Primary-Default;
+}
+
+.localeDivider {
+  font-size: $Font-Size-Caption;
+  color: $c-Grey-300;
+  user-select: none;
 }

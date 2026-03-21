@@ -1,5 +1,6 @@
+import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Stack } from "@/components/layout/Stack";
@@ -12,11 +13,12 @@ import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import type { Project } from "@/types/project";
 import styles from "./page.module.scss";
 
+// Datos locales (esto luego lo reemplazarás por tu fetch de Sanity)
 const projects: Project[] = [
   {
     slug: "design-system",
     title: "Design System",
-    description: "A scalable component library built with React, TypeScript and SCSS following atomic design principles.",
+    description: "A scalable component library built with React, TypeScript and SCSS.",
     category: "frontend",
     tags: ["React", "TypeScript", "SCSS"],
     github: "https://github.com",
@@ -25,7 +27,7 @@ const projects: Project[] = [
   {
     slug: "ux-case-study",
     title: "UX Case Study",
-    description: "End-to-end product design for a fintech mobile app — from discovery and user research to final prototype.",
+    description: "End-to-end product design for a fintech mobile app.",
     category: "ux",
     tags: ["Figma", "Research", "Prototyping"],
     publishedAt: "2024-10-15",
@@ -33,7 +35,7 @@ const projects: Project[] = [
   {
     slug: "portfolio-platform",
     title: "Portfolio Platform",
-    description: "Multi-project platform using Next.js 14 App Router, Sanity CMS and a custom design system.",
+    description: "Multi-project platform using Next.js, Sanity CMS and a custom design system.",
     category: "fullstack",
     tags: ["Next.js", "Sanity", "TypeScript"],
     github: "https://github.com",
@@ -58,7 +60,6 @@ export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-// Next.js 15 — params is a Promise
 export async function generateMetadata({
   params,
 }: {
@@ -73,18 +74,24 @@ export async function generateMetadata({
   };
 }
 
+// ✅ MODIFICACIÓN: Componente asíncrono para Server Component
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  // Next.js 15 — await params before accessing properties
-  const { slug } = await params;
+  // ✅ MODIFICACIÓN: Await para params en Next.js 15
+  const { slug, locale } = await params;
+  
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
+  // ✅ MODIFICACIÓN: Uso de getTranslations (Server Side) con await
+  const t = await getTranslations({ locale, namespace: "projects" });
+
+  // ✅ MODIFICACIÓN: Formateo de fecha usando el locale actual
   const formattedDate = project.publishedAt
-    ? new Date(project.publishedAt).toLocaleDateString("en-US", {
+    ? new Date(project.publishedAt).toLocaleDateString(locale, {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -94,11 +101,11 @@ export default async function ProjectDetailPage({
   return (
     <Container as="main">
       <Section spacing="lg">
-
         <div className={styles.back}>
+          {/* ✅ Usando Link de @/i18n/navigation mantiene el locale */}
           <Link href="/projects" className={styles.backLink}>
             <ArrowLeft size={16} />
-            All projects
+            {t("back")}
           </Link>
         </div>
 
@@ -116,9 +123,7 @@ export default async function ProjectDetailPage({
           <Text variant="secondary">{project.description}</Text>
 
           <Stack direction="row" align="center" gap="lg" wrap="wrap">
-            {formattedDate && (
-              <Text variant="small">{formattedDate}</Text>
-            )}
+            {formattedDate && <Text variant="small">{formattedDate}</Text>}
             <Stack direction="row" gap="sm">
               {project.github && (
                 <Button
@@ -156,16 +161,13 @@ export default async function ProjectDetailPage({
           </div>
         ) : (
           <div className={styles.coverPlaceholder}>
-            <Text variant="secondary">Project cover — coming soon</Text>
+            <Text variant="secondary">{t("cover_soon")}</Text>
           </div>
         )}
 
         <div className={styles.content}>
-          <Text variant="secondary">
-            Full project content will be available once Sanity CMS is connected in Phase 4.
-          </Text>
+          <Text variant="secondary">{t("content_soon")}</Text>
         </div>
-
       </Section>
     </Container>
   );

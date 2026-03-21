@@ -1,0 +1,42 @@
+{
+    "nav": {
+      "projects": "Projects",
+      "blog": "Blog",
+      "about": "About"
+    },
+    "home": {
+      "eyebrow": "UI/UX Designer & Frontend Developer",
+      "heading": "Crafting elite digital experiences with precision.",
+      "description": "I design and build products where aesthetics and engineering meet — from design systems to full-stack applications.",
+      "cta_projects": "View Projects",
+      "cta_blog": "Read Blog",
+      "selected_work": "Selected Work",
+      "selected_work_desc": "A mix of UX case studies and frontend projects.",
+      "all_projects": "All projects",
+      "from_blog": "From the Blog",
+      "from_blog_desc": "Thoughts on design, frontend and the space between them.",
+      "all_posts": "All posts",
+      "cta_heading": "Let's work together.",
+      "cta_desc": "Have a project in mind? I'm available for freelance work and collaborations.",
+      "cta_button": "Get in touch"
+    },
+    "projects": {
+      "heading": "Projects",
+      "description": "A selection of work across UX design and frontend development.",
+      "back": "All projects",
+      "cover_soon": "Project cover — coming soon",
+      "content_soon": "Full project content will be available once Sanity CMS is connected."
+    },
+    "blog": {
+      "heading": "Blog",
+      "description": "Thoughts on design, frontend development and the space between them.",
+      "back": "All posts",
+      "cover_soon": "Post cover — coming soon",
+      "content_soon": "Full post content will be available once Sanity CMS is connected.",
+      "min_read": "min read"
+    },
+    "about": {
+      "heading": "About",
+      "description": "Web designer and developer with a passion for creating beautiful and functional websites."
+    }
+  }

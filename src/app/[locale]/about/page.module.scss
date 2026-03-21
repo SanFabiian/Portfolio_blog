@@ -1,0 +1,7 @@
+@use "../../../styles/index" as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $Space-3;
+}
