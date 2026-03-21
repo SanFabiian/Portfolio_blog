@@ -8,32 +8,11 @@ import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { Tag } from "@/components/ui/Tag";
 import { ArrowLeft } from "lucide-react";
-import type { Post } from "@/types/post";
+import { getPostBySlug, getPosts } from "@/services/sanity";
 import styles from "./page.module.scss";
 
-// Datos locales (reemplazar luego con fetch de Sanity)
-const posts: Post[] = [
-  {
-    slug: "design-systems-at-scale",
-    title: "Design Systems at Scale",
-    excerpt: "How to build and maintain a design system that grows with your team.",
-    tags: ["Design Systems", "Frontend"],
-    readingTime: 5,
-    publishedAt: "2024-11-01",
-    author: "SanFabiian",
-  },
-  {
-    slug: "nextjs-app-router",
-    title: "Next.js App Router in Practice",
-    excerpt: "Lessons learned migrating from Pages Router to App Router.",
-    tags: ["Next.js", "React"],
-    readingTime: 8,
-    publishedAt: "2024-10-15",
-    author: "SanFabiian",
-  },
-];
-
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const posts = await getPosts();
   return posts.map((p) => ({ slug: p.slug }));
 }
 
@@ -42,8 +21,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params; // params es una promesa en Next.js 15
-  const post = posts.find((p) => p.slug === slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
   if (!post) return {};
   return {
     title: `${post.title} | SanFabiian`,
@@ -51,18 +30,15 @@ export async function generateMetadata({
   };
 }
 
-// Convertimos a función async para Server Component
 export default async function BlogPostPage({
   params,
 }: {
   params: Promise<{ slug: string; locale: string }>;
 }) {
   const { slug, locale } = await params;
-  const post = posts.find((p) => p.slug === slug);
-  
+  const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  // Cargamos las traducciones del servidor
   const t = await getTranslations({ locale, namespace: "blog" });
 
   const formattedDate = post.publishedAt
@@ -77,13 +53,11 @@ export default async function BlogPostPage({
     <Container as="main">
       <Section spacing="lg">
         <div className={styles.back}>
-          {/* El Link de navigation.ts mantiene el prefijo del idioma */}
           <Link href="/blog" className={styles.backLink}>
             <ArrowLeft size={16} />
             {t("back")}
           </Link>
         </div>
-
         <div className={styles.header}>
           {post.tags && post.tags.length > 0 && (
             <Stack direction="row" gap="sm" wrap="wrap">
@@ -104,7 +78,6 @@ export default async function BlogPostPage({
             )}
           </Stack>
         </div>
-
         {post.coverImage ? (
           <div className={styles.cover}>
             <img src={post.coverImage} alt={post.title} className={styles.coverImage} />
@@ -114,7 +87,6 @@ export default async function BlogPostPage({
             <Text variant="secondary">{t("cover_soon")}</Text>
           </div>
         )}
-
         <div className={styles.content}>
           <Text variant="secondary">{t("content_soon")}</Text>
         </div>

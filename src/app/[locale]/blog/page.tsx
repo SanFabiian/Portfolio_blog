@@ -1,42 +1,21 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Grid } from "@/components/layout/Grid";
 import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { PostCard } from "@/components/ui/PostCard";
-import type { Post } from "@/types/post";
+import { getPosts } from "@/services/sanity";
 import styles from "./page.module.scss";
 
-const posts: Post[] = [
-  {
-    slug: "design-systems-at-scale",
-    title: "Design Systems at Scale",
-    excerpt: "How to build and maintain a design system that grows with your team.",
-    tags: ["Design Systems", "Frontend"],
-    readingTime: 5,
-    publishedAt: "2024-11-01",
-  },
-  {
-    slug: "nextjs-app-router",
-    title: "Next.js App Router in Practice",
-    excerpt: "Lessons learned migrating from Pages Router to App Router.",
-    tags: ["Next.js", "React"],
-    readingTime: 8,
-    publishedAt: "2024-10-15",
-  },
-  {
-    slug: "ux-meets-frontend",
-    title: "When UX Meets Frontend",
-    excerpt: "Bridging the gap between design thinking and engineering.",
-    tags: ["UX", "Process"],
-    readingTime: 6,
-    publishedAt: "2024-09-20",
-  },
-];
-
-export default function BlogPage() {
-  const t = useTranslations("blog");
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
+  const posts = await getPosts();
 
   return (
     <Container as="main">

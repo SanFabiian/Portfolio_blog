@@ -4,6 +4,8 @@ import {
   projectBySlugQuery,
   postsQuery,
   postBySlugQuery,
+  featuredProjectsQuery,
+  latestPostsQuery
 } from "./queries";
 import type { Project } from "@/types/project";
 import type { Post } from "@/types/post";
@@ -22,4 +24,12 @@ export async function getPosts(): Promise<Post[]> {
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   return client.fetch(postBySlugQuery, { slug });
+}
+
+export async function getFeaturedProjects(): Promise<Project[]> {
+  return client.fetch(featuredProjectsQuery);
+}
+
+export async function getLatestPosts(): Promise<Post[]> {
+  return client.fetch(latestPostsQuery);
 }
