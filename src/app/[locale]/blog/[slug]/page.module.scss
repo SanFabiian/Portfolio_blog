@@ -2,6 +2,7 @@
 
 .back {
   margin-bottom: $Space-8;
+  width: 100%;
 }
 
 .backLink {
@@ -22,7 +23,6 @@
   flex-direction: column;
   gap: $Space-4;
   margin-bottom: $Space-10;
-  max-width: 720px;
 }
 
 .cover {
@@ -50,7 +50,9 @@
   justify-content: center;
   margin-bottom: $Space-10;
 }
-
-.content {
-  max-width: 720px;
+.back,
+.header,
+.content,
+.cover {
+  max-width: 800px;
 }

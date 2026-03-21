@@ -60,48 +60,50 @@ export default async function BlogPostPage({
   return (
     <Container as="main">
       <Section spacing="lg">
+        <Stack align="center">
         <div className={styles.back}>
           <Link href="/blog" className={styles.backLink}>
             <ArrowLeft size={16} />
             {t("back")}
           </Link>
         </div>
-        <div className={styles.header}>
-          {post.tags && post.tags.length > 0 && (
-            <Stack direction="row" gap="sm" wrap="wrap">
-              {post.tags.map((tag) => (
-                <Tag key={tag.slug}>{tag.label}</Tag>
-              ))}
-            </Stack>
-          )}
-          <Heading level="h1">{post.title}</Heading>
-          <Text variant="secondary">{post.excerpt}</Text>
-          <Stack direction="row" align="center" gap="md" wrap="wrap">
-            {post.author && <Text variant="small">{post.author}</Text>}
-            {formattedDate && <Text variant="small">{formattedDate}</Text>}
-            {post.readingTime && (
-              <Text variant="small">
-                {post.readingTime} {t("min_read")}
-              </Text>
+          <div className={styles.header}>
+            {post.tags && post.tags.length > 0 && (
+              <Stack direction="row" gap="sm" wrap="wrap">
+                {post.tags.map((tag) => (
+                  <Tag key={tag.slug}>{tag.label}</Tag>
+                ))}
+              </Stack>
             )}
-          </Stack>
-        </div>
-        {post.coverImage ? (
-          <div className={styles.cover}>
-            <img src={post.coverImage} alt={post.title} className={styles.coverImage} />
+            <Heading level="h1">{post.title}</Heading>
+            <Text variant="secondary">{post.excerpt}</Text>
+            <Stack direction="row" align="center" gap="md" wrap="wrap">
+              {post.author && <Text variant="small">{post.author}</Text>}
+              {formattedDate && <Text variant="small">{formattedDate}</Text>}
+              {post.readingTime && (
+                <Text variant="small">
+                  {post.readingTime} {t("min_read")}
+                </Text>
+              )}
+            </Stack>
           </div>
-        ) : (
-          <div className={styles.coverPlaceholder}>
-            <Text variant="secondary">{t("cover_soon")}</Text>
-          </div>
-        )}
-        <div className={styles.content}>
-          {post.content ? (
-            <PortableText value={post.content} />
+          {post.coverImage ? (
+            <div className={styles.cover}>
+              <img src={post.coverImage} alt={post.title} className={styles.coverImage} />
+            </div>
           ) : (
-            <Text variant="secondary">{t("content_soon")}</Text>
+            <div className={styles.coverPlaceholder}>
+              <Text variant="secondary">{t("cover_soon")}</Text>
+            </div>
           )}
-        </div>
+          <div className={styles.content}>
+            {post.content ? (
+              <PortableText value={post.content} />
+            ) : (
+              <Text variant="secondary">{t("content_soon")}</Text>
+            )}
+          </div>
+        </Stack>
       </Section>
     </Container>
   );

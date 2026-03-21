@@ -25,7 +25,33 @@ export const projectBySlugQuery = `
     "slug": slug.current,
     "title": select($locale == "es" => title_es, title_en),
     "description": select($locale == "es" => description_es, description_en),
-    "content": select($locale == "es" => content_es, content_en),
+    "content": select($locale == "es" => content_es, content_en)[]{
+      ...,
+      _type == "image" => {
+        "_type": "image",
+        "url": asset->url,
+        alt,
+        caption
+      },
+      _type == "imageGrid" => {
+        "_type": "imageGrid",
+        columns,
+        "images": images[]{
+          "url": asset->url,
+          alt,
+          caption
+        }
+      },
+      _type == "imageText" => {
+        "_type": "imageText",
+        imagePosition,
+        "image": {
+          "url": image.asset->url,
+          "alt": image.alt
+        },
+        text
+      }
+    },
     "category": category->{ 
       "label": select($locale == "es" => label_es, label_en), 
       "slug": slug.current 
@@ -69,7 +95,33 @@ export const postBySlugQuery = `
     "slug": slug.current,
     "title": select($locale == "es" => title_es, title_en),
     "excerpt": select($locale == "es" => excerpt_es, excerpt_en),
-    "content": select($locale == "es" => content_es, content_en),
+    "content": select($locale == "es" => content_es, content_en)[]{
+      ...,
+      _type == "image" => {
+        "_type": "image",
+        "url": asset->url,
+        alt,
+        caption
+      },
+      _type == "imageGrid" => {
+        "_type": "imageGrid",
+        columns,
+        "images": images[]{
+          "url": asset->url,
+          alt,
+          caption
+        }
+      },
+      _type == "imageText" => {
+        "_type": "imageText",
+        imagePosition,
+        "image": {
+          "url": image.asset->url,
+          "alt": image.alt
+        },
+        text
+      }
+    },
     "category": category->{ 
       "label": select($locale == "es" => label_es, label_en), 
       "slug": slug.current 

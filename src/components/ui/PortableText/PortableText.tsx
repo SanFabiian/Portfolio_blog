@@ -31,6 +31,61 @@ const components = {
     bullet: ({ children }: any) => <li className={styles.li}>{children}</li>,
     number: ({ children }: any) => <li className={styles.li}>{children}</li>,
   },
+  types: {
+    // Imagen sola con caption
+    image: ({ value }: any) => (
+      <figure className={styles.figure}>
+        <img
+          src={value.url}
+          alt={value.alt ?? ""}
+          className={styles.image}
+        />
+        {value.caption && (
+          <figcaption className={styles.caption}>{value.caption}</figcaption>
+        )}
+      </figure>
+    ),
+
+    // Grid de imágenes
+    imageGrid: ({ value }: any) => (
+      <div
+        className={styles.imageGrid}
+        style={{ "--grid-cols": value.columns } as React.CSSProperties}
+      >
+        {value.images?.map((img: any, i: number) => (
+          <figure key={i} className={styles.gridFigure}>
+            <img
+              src={img.url}
+              alt={img.alt ?? ""}
+              className={styles.gridImage}
+            />
+            {img.caption && (
+              <figcaption className={styles.caption}>{img.caption}</figcaption>
+            )}
+          </figure>
+        ))}
+      </div>
+    ),
+
+    // Imagen + texto lado a lado
+    imageText: ({ value }: any) => (
+      <div
+        className={styles.imageText}
+        data-position={value.imagePosition ?? "left"}
+      >
+        <figure className={styles.imageTextFigure}>
+          <img
+            src={value.image?.url}
+            alt={value.image?.alt ?? ""}
+            className={styles.imageTextImg}
+          />
+        </figure>
+        <div className={styles.imageTextContent}>
+          <SanityPortableText value={value.text} components={components} />
+        </div>
+      </div>
+    ),
+  },
 };
 
 interface Props {

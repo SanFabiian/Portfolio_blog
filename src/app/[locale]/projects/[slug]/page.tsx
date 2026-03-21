@@ -61,57 +61,59 @@ export default async function ProjectDetailPage({
   return (
     <Container as="main">
       <Section spacing="lg">
-        <div className={styles.back}>
-          <Link href="/projects" className={styles.backLink}>
-            <ArrowLeft size={16} />
-            {t("back")}
-          </Link>
-        </div>
-        <div className={styles.header}>
-          <Stack direction="row" align="center" gap="sm" wrap="wrap">
-          {project.category && (
-            <Badge variant="info">
-              {project.category.label}
-            </Badge>
-          )}
-          {project.tags?.filter(Boolean).map((tag) => (
-            <Tag key={tag.slug}>{tag.label}</Tag>
-          ))}
-          </Stack>
-          <Heading level="h1">{project.title}</Heading>
-          <Text variant="secondary">{project.description}</Text>
-          <Stack direction="row" align="center" gap="lg" wrap="wrap">
-            {formattedDate && <Text variant="small">{formattedDate}</Text>}
-            <Stack direction="row" gap="sm">
-              {project.github && (
-                <Button as="a" href={project.github} target="_blank" rel="noopener noreferrer" variant="secondary" size="sm" iconLeft={<Github size={14} />}>
-                  GitHub
-                </Button>
-              )}
-              {project.link && (
-                <Button as="a" href={project.link} target="_blank" rel="noopener noreferrer" variant="secondary" size="sm" iconLeft={<ExternalLink size={14} />}>
-                  Live
-                </Button>
-              )}
+        <Stack align="center">
+          <div className={styles.back}>
+            <Link href="/projects" className={styles.backLink}>
+              <ArrowLeft size={16} />
+              {t("back")}
+            </Link>
+          </div>
+          <div className={styles.header}>
+            <Stack direction="row" align="center" gap="sm" wrap="wrap">
+            {project.category && (
+              <Badge variant="info">
+                {project.category.label}
+              </Badge>
+            )}
+            {project.tags?.filter(Boolean).map((tag) => (
+              <Tag key={tag.slug}>{tag.label}</Tag>
+            ))}
             </Stack>
-          </Stack>
-        </div>
-        {project.image ? (
-          <div className={styles.cover}>
-            <img src={project.image} alt={project.title} className={styles.coverImage} />
+            <Heading level="h1">{project.title}</Heading>
+            <Text variant="secondary">{project.description}</Text>
+            <Stack direction="row" align="center" gap="lg" wrap="wrap">
+              {formattedDate && <Text variant="small">{formattedDate}</Text>}
+              <Stack direction="row" gap="sm">
+                {project.github && (
+                  <Button as="a" href={project.github} target="_blank" rel="noopener noreferrer" variant="secondary" size="sm" iconLeft={<Github size={14} />}>
+                    GitHub
+                  </Button>
+                )}
+                {project.link && (
+                  <Button as="a" href={project.link} target="_blank" rel="noopener noreferrer" variant="secondary" size="sm" iconLeft={<ExternalLink size={14} />}>
+                    Live
+                  </Button>
+                )}
+              </Stack>
+            </Stack>
           </div>
-        ) : (
-          <div className={styles.coverPlaceholder}>
-            <Text variant="secondary">{t("cover_soon")}</Text>
-          </div>
-        )}
-        <div className={styles.content}>
-          {project.content ? (
-            <PortableText value={project.content} />
+          {project.image ? (
+            <div className={styles.cover}>
+              <img src={project.image} alt={project.title} className={styles.coverImage} />
+            </div>
           ) : (
-            <Text variant="secondary">{t("content_soon")}</Text>
+            <div className={styles.coverPlaceholder}>
+              <Text variant="secondary">{t("cover_soon")}</Text>
+            </div>
           )}
-        </div>
+          <div className={styles.content}>
+            {project.content ? (
+              <PortableText value={project.content} />
+            ) : (
+              <Text variant="secondary">{t("content_soon")}</Text>
+            )}
+          </div>
+        </Stack>
       </Section>
     </Container>
   );

@@ -1,19 +1,21 @@
 @use "../../../styles/index" as *;
 
+
 .root {
   display: flex;
   flex-direction: column;
-  gap: $Space-4;
+  gap: $Space-6;
 }
 
+// ── Texto ────────────────────────────────────────────
 .paragraph {
   line-height: 1.75;
   color: var(--color-text);
 }
 
-.h1 { font-size: 2rem; font-weight: 700; }
-.h2 { font-size: 1.5rem; font-weight: 700; }
-.h3 { font-size: 1.25rem; font-weight: 600; }
+.h1 { font-size: 2rem; font-weight: 700; margin-bottom: $Space-2; }
+.h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: $Space-2; }
+.h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: $Space-2; }
 
 .blockquote {
   border-left: 3px solid var(--color-primary);
@@ -25,7 +27,7 @@
 .inlineCode {
   background: var(--color-surface);
   padding: 0.1em 0.4em;
-  border-radius:$Border-Radius-Small;
+  border-radius: $Border-Radius-Extra-Small;
   font-family: monospace;
   font-size: 0.9em;
 }
@@ -33,10 +35,7 @@
 .link {
   color: var(--color-primary);
   text-decoration: underline;
-
-  &:hover {
-    opacity: 0.8;
-  }
+  &:hover { opacity: 0.8; }
 }
 
 .ul {
@@ -51,4 +50,89 @@
 
 .li {
   line-height: 1.75;
+}
+
+// ── Imagen sola ──────────────────────────────────────
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: $Space-2;
+}
+
+.image {
+  width: 100%;
+  border-radius: $Border-Radius-Medium;
+  object-fit: cover;
+}
+
+.caption {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+// ── Image Grid ───────────────────────────────────────
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 2), 1fr);
+  gap: $Space-4;
+}
+
+.gridFigure {
+  display: flex;
+  flex-direction: column;
+  gap: $Space-2;
+}
+
+.gridImage {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: $Border-Radius-Medium;
+}
+
+// ── Image + Text ─────────────────────────────────────
+.imageText {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $Space-8;
+  align-items: center;
+
+  &[data-position="right"] {
+    .imageTextFigure { order: 2; }
+    .imageTextContent { order: 1; }
+  }
+}
+
+.imageTextFigure {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageTextImg {
+  width: 100%;
+  border-radius: $Border-Radius-Medium;
+  object-fit: cover;
+}
+
+.imageTextContent {
+  display: flex;
+  flex-direction: column;
+  gap: $Space-4;
+}
+
+// ── Responsive ───────────────────────────────────────
+@media (max-width: 768px) {
+  .imageGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .imageText {
+    grid-template-columns: 1fr;
+
+    &[data-position="right"] {
+      .imageTextFigure { order: 0; }
+      .imageTextContent { order: 0; }
+    }
+  }
 }

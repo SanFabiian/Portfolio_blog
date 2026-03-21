@@ -2,6 +2,7 @@
 
 .back {
   margin-bottom: $Space-8;
+  width: 100%;
 }
 
 .backLink {
@@ -52,4 +53,11 @@
 
 .content {
   max-width: 720px;
+}
+
+.back,
+.header,
+.content,
+.cover {
+  max-width: 800px;
 }
