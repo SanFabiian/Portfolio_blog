@@ -4,11 +4,11 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  border-radius: $Border-Radius-Small;
+  border-radius: $border-radius-small;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid $c-Grey-200;
-  background: $Colors-Grey-Light;
-  border-radius: $Border-Radius-Small;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-subtle)Grey-Light;
+  border-radius: $border-radius-small;
   cursor: pointer;
 
   &:hover {
@@ -40,7 +40,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: $c-Grey-100;
+  background:var(--color-text-disabled);
 }
 
 .image {
@@ -56,10 +56,10 @@
 
 // Body
 .body {
-  padding: $Space-5;
+  padding: $spacing-md;
   display: flex;
   flex-direction: column;
-  gap: $Space-3;
+  gap: $spacing-sm;
 }
 
 // Meta slot
@@ -67,27 +67,27 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: $Space-2;
+  gap: $spacing-sm;
 }
 
 // Title
 .title {
-  font-size: $Font-Size-H3;
-  font-weight: $Font-Weight-SemiBold;
-  color: $Colors-UI-Title;
+  font-size: $font-size-h3;
+  font-weight: $font-weight-semiBold;
+  color: var(--color-action-primary);
   margin: 0;
   transition: color 0.15s ease;
 
   .wrapper:hover & {
-    color: $Colors-Primary-Default;
+    color: var(--color-action-primary);
   }
 }
 
 // Description
 .description {
-  font-size: $Font-Size-Body;
-  color: $Colors-UI-Text;
-  line-height: $Line-Height-Body;
+  font-size: $font-size-body;
+  color: var(--color-text-primary);
+  line-height:  $line-height-body;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -99,6 +99,6 @@
 .footer {
   display: flex;
   align-items: center;
-  gap: $Space-4;
-  padding: $Space-3 $Space-5;
+  gap: $spacing-md;
+  padding: $spacing-sm $spacing-md;
 }

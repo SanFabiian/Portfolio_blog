@@ -9,11 +9,11 @@
 .column { flex-direction: column; }
 
 // Gap — using spacing tokens, no hardcoded values
-.gap-xs { gap: $Space-1; }  // 4px
-.gap-sm { gap: $Space-2; }  // 8px
-.gap-md { gap: $Space-4; }  // 16px
-.gap-lg { gap: $Space-6; }  // 24px
-.gap-xl { gap: $Space-8; }  // 32px
+.gap-xs { gap: $spacing-xs; }  // 4px
+.gap-sm { gap: $spacing-sm; }  // 8px
+.gap-md { gap: $spacing-md; }  // 16px
+.gap-lg { gap: $spacing-lg; }  // 24px
+.gap-xl { gap: $spacing-xl; }  // 32px
 
 // Align
 .align-start  { align-items: flex-start; }

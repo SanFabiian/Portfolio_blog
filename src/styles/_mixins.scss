@@ -1,21 +1,27 @@
 // =============================================================================
 // _mixins.scss
-// Reusable style helpers.
-// FIX: only @use abstracts/_index for primitive tokens.
-//      Previously imported _variables.scss which created a circular dependency.
+//
+// Reusable style helpers — layout utilities, focus states, responsive
+// breakpoints, and accessibility patterns.
+//
+// Rules:
+//   - Only @use abstracts/index for primitive tokens.
+//   - Never @use _variables.scss here — that would create a circular dependency
+//     since _variables.scss already depends on abstracts/index.
+//   - Mixins must be stateless — no output CSS at the top level.
 // =============================================================================
 
 @use "./abstracts/index" as *;
 
 // Elevation shadow using the blue primitive scale
 @mixin boxShadow {
-  box-shadow: 0px 2px 4px 0 $c-Blue-100;
+  box-shadow: 0px 2px 4px 0 palette("blue", 100);
 }
 
 // Consistent focus ring for interactive elements
-@mixin focusRing($color: $c-Sea-300) {
+@mixin focusRing($color: palette("sea", 300)) {
   outline: 2px solid $color;
-  outline-offset: $Space-1;
+  outline-offset: $space-16;
 }
 
 // Single-line text truncation

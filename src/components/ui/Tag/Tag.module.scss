@@ -3,13 +3,13 @@
 .tag {
   display: inline-flex;
   align-items: center;
-  padding: $Space-1 $Space-2;
-  border-radius: $Border-Radius-Extra-Small;
-  border: 1px solid $c-Grey-200;
-  background: $c-Grey-50;
-  color: $c-Grey-700;
-  font-size: $Font-Size-Caption;
-  font-weight: $Font-Weight-Medium;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-extra-small;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-action-primary-subtle);
+  color: var(--color-text-secondary);
+  font-size: $font-size-caption;
+  font-weight: $font-weight-medium;
   line-height: 1;
   white-space: nowrap;
 }

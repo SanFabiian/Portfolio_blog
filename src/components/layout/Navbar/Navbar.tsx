@@ -5,6 +5,7 @@ import { usePathname, useRouter, Link } from "@/i18n/navigation"; // ✅ IMPORTA
 import clsx from "clsx";
 import { Logo } from "@/components/ui/Logo";
 import { Stack } from "@/components/layout/Stack";
+import { ThemeToggle } from "@/components/ui/ThemeToggle/ThemeToggle";
 import styles from "./Navbar.module.scss";
 
 const navItems = [
@@ -30,11 +31,10 @@ export function Navbar() {
 
   return (
     <header className={styles.navbar}>
-      <Stack className={styles.content} direction="row" align="center" gap="lg">
         <Link href="/" className={styles.logo}>
           <Logo size="medium" variant="isotipo" />
         </Link>
-
+      <Stack className={styles.content} direction="row" align="center" gap="lg">
         <nav aria-label="Main navigation">
           <ul className={styles.links} role="list">
             {navItems.map(({ href, labelKey }) => (
@@ -65,6 +65,7 @@ export function Navbar() {
             ES
           </button>
         </div>
+        <ThemeToggle />
       </Stack>
     </header>
   );

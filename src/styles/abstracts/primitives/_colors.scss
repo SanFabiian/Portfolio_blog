@@ -1,98 +1,108 @@
 // =============================================================================
-// Color tokens
-// No dependencies — raw values only.
-// Never import this file directly. Use styles/index.scss instead.
+// primitives/_colors.scss
+//
+// Raw color palette — single source of truth for all color values.
+// Defines the $color-palette map consumed by abstracts/_functions.scss.
+//
+// Rules:
+//   - Primitive values only. No semantic meaning here.
+//   - Never reference directly in components — use semantic tokens instead.
+//   - Never add standalone variables. Always access via color() function.
+//   - New ramps must follow the 50–950 scale and use lowercase kebab-case keys.
 // =============================================================================
 
-// Sea
-$c-Sea-50:  #EFF7FF;
-$c-Sea-100: #DEEEFF;
-$c-Sea-200: #B6DEFF;
-$c-Sea-300: #76C5FF;
-$c-Sea-400: #2DA8FF;
-$c-Sea-500: #028DF5;
-$c-Sea-600: #006ED2;
-$c-Sea-700: #0058AA;
-$c-Sea-800: #005096;
-$c-Sea-900: #073E73;
-$c-Sea-950: #04274D;
-
-// Sand
-$c-Sand-50:  #FFF6ED;
-$c-Sand-100: #FFEAD4;
-$c-Sand-200: #FFD2A9;
-$c-Sand-300: #FFAA64;
-$c-Sand-400: #FE8639;
-$c-Sand-500: #FC6413;
-$c-Sand-600: #ED4909;
-$c-Sand-700: #C53509;
-$c-Sand-800: #9C2B10;
-$c-Sand-900: #7E2510;
-$c-Sand-950: #441006;
-
-// Blue
-$c-Blue-50:  #EFF6FF;
-$c-Blue-100: #DBEAFE;
-$c-Blue-200: #BFDBFE;
-$c-Blue-300: #93C5FD;
-$c-Blue-400: #60A5FA;
-$c-Blue-500: #3B82F6;
-$c-Blue-600: #2563EB;
-$c-Blue-700: #1D4ED8;
-$c-Blue-800: #1E40AF;
-$c-Blue-900: #1E3A8A;
-$c-Blue-950: #172554;
-
-// Grey
-$c-Grey-0:    #FFFFFF;
-$c-Grey-50:   #F7F7F7;
-$c-Grey-100:  #EDEDED;
-$c-Grey-200:  #DFDFDF;
-$c-Grey-300:  #C7C7C7;
-$c-Grey-400:  #ADADAD;
-$c-Grey-500:  #999999;
-$c-Grey-600:  #888888;
-$c-Grey-700:  #7B7B7B;
-$c-Grey-800:  #676767;
-$c-Grey-900:  #545454;
-$c-Grey-950:  #363636;
-$c-Grey-1000: #000000;
-
-// Green
-$c-Green-50:  #EAFFF5;
-$c-Green-100: #CCFFE6;
-$c-Green-200: #9FFBD2;
-$c-Green-300: #3DF2AD;
-$c-Green-400: #22E5A1;
-$c-Green-500: #00CC8A;
-$c-Green-600: #00A672;
-$c-Green-700: #00855F;
-$c-Green-800: #00694C;
-$c-Green-900: #005640;
-$c-Green-950: #003125;
-
-// Red
-$c-Red-50:  #FEF2F2;
-$c-Red-100: #FEE2E2;
-$c-Red-200: #FECACA;
-$c-Red-300: #FCA5A5;
-$c-Red-400: #F87171;
-$c-Red-500: #EF4444;
-$c-Red-600: #DC2626;
-$c-Red-700: #B91C1C;
-$c-Red-800: #991B1B;
-$c-Red-900: #7F1D1D;
-$c-Red-950: #450A0A;
-
-// Orange
-$c-Orange-50:  #FFF7ED;
-$c-Orange-100: #FFEDD5;
-$c-Orange-200: #FED7AA;
-$c-Orange-300: #FDBA74;
-$c-Orange-400: #FB923C;
-$c-Orange-500: #F97316;
-$c-Orange-600: #EA580C;
-$c-Orange-700: #C2410C;
-$c-Orange-800: #9A3412;
-$c-Orange-900: #7C2D12;
-$c-Orange-950: #431407;
+$color-palette: (
+    "sea":(
+        50:  #EFF7FF,
+        100: #DEEEFF,
+        200: #B6DEFF,
+        300: #76C5FF,
+        400: #2DA8FF,
+        500: #028DF5,
+        600: #006ED2,
+        700: #0058AA,
+        800: #005096,
+        900: #073E73,
+        950: #04274D,
+    ),
+    "sand":(
+        50:  #FFF6ED,
+        100: #FFEAD4,
+        200: #FFD2A9,
+        300: #FFAA64,
+        400: #FE8639,
+        500: #FC6413,
+        600: #ED4909,
+        700: #C53509,
+        800: #9C2B10,
+        900: #7E2510,
+        950: #441006,
+    ),
+    "blue":(
+        50:  #EFF6FF,
+        100: #DBEAFE,
+        200: #BFDBFE,
+        300: #93C5FD,
+        400: #60A5FA,
+        500: #3B82F6,
+        600: #2563EB,
+        700: #1D4ED8,
+        800: #1E40AF,
+        900: #1E3A8A,
+        950: #172554,
+    ),
+    "grey":(
+        0:    #FFFFFF,
+        50:   #F7F7F7,
+        100:  #EDEDED,
+        200:  #DFDFDF,
+        300:  #C7C7C7,
+        400:  #ADADAD,
+        500:  #999999,
+        600:  #888888,
+        700:  #7B7B7B,
+        800:  #676767,
+        900:  #545454,
+        950:  #363636,
+        1000: #000000,
+    ),
+    "green":(
+        50:  #EAFFF5,
+        100: #CCFFE6,
+        200: #9FFBD2,
+        300: #3DF2AD,
+        400: #22E5A1,
+        500: #00CC8A,
+        600: #00A672,
+        700: #00855F,
+        800: #00694C,
+        900: #005640,
+        950: #003125,
+    ),
+    "red":(
+        50:  #FEF2F2,
+        100: #FEE2E2,
+        200: #FECACA,
+        300: #FCA5A5,
+        400: #F87171,
+        500: #EF4444,
+        600: #DC2626,
+        700: #B91C1C,
+        800: #991B1B,
+        900: #7F1D1D,
+        950: #450A0A,
+    ),
+    "orange":(
+        50:  #FFF7ED,
+        100: #FFEDD5,
+        200: #FED7AA,
+        300: #FDBA74,
+        400: #FB923C,
+        500: #F97316,
+        600: #EA580C,
+        700: #C2410C,
+        800: #9A3412,
+        900: #7C2D12,
+        950: #431407,
+    ),
+);

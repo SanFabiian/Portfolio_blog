@@ -7,9 +7,9 @@
 }
 
 // Gap scale
-.gap-sm { gap: $Space-4; }   // 16px
-.gap-md { gap: $Space-6; }   // 24px
-.gap-lg { gap: $Space-8; }   // 32px
+.gap-sm { gap: $spacing-md; }   // 16px
+.gap-md { gap: $spacing-lg; }   // 24px
+.gap-lg { gap: $spacing-xl; }   // 32px
 
 // Base columns (mobile-first)
 .cols-1  { grid-template-columns: repeat(1,  minmax(0, 1fr)); }

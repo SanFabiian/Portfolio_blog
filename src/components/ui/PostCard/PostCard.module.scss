@@ -3,16 +3,16 @@
 .footerContent {
   display: flex;
   align-items: center;
-  gap: $Space-2;
+  gap: $spacing-sm;
 }
 
 .date,
 .readingTime {
-  font-size: $Font-Size-Caption;
-  color: $c-Grey-500;
+  font-size: $font-size-caption;
+  color: var(--color-text-secondary);
 }
 
 .dot {
-  font-size: $Font-Size-Caption;
-  color: $c-Grey-400;
+  font-size: $font-size-caption;
+  color: var(--color-text-disabled);
 }

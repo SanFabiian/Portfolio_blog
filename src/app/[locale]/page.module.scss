@@ -1,40 +1,45 @@
+// Spacing, radius, mixins → SASS variables (no cambian con el tema)
+// Colores → Custom Properties (cambian con el tema automáticamente)
+
 @use "../../styles/index" as *;
 
 .hero {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $Space-12;
+  gap: $spacing-xs;
   align-items: center;
 
   @include lg {
     grid-template-columns: 1fr 1fr;
-    gap: $Space-16;
+    gap: $spacing-xl;
   }
 }
 
 .heroText {
   display: flex;
   flex-direction: column;
-  gap: $Space-6;
+  gap: $spacing-lg;
 }
 
 .heroEyebrow {
-  font-size: $Font-Size-Small;
-  font-weight: $Font-Weight-Medium;
-  color: $Colors-Primary-Default;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  color: var(--color-text-secondary);   // ← era var(--)
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin: 0;
 }
 
 .heroHeading {
-  font-size: clamp(32px, 5vw, 56px) !important;
-  line-height: 1.1 !important;
+  font-size: clamp(3.2rem, 5vw, 5.6rem); // ← usa rem, elimina !important
+  line-height: 1.1;
+  color: var(--color-text-primary);
 }
 
 .heroDescription {
-  font-size: $Font-Size-Body;
-  line-height: $Line-Height-Body;
+  font-size: $font-size-body;
+  line-height: $line-height-body;
+  color: var(--color-text-secondary);
   max-width: 480px;
 }
 
@@ -47,8 +52,8 @@
   align-items: flex-end;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: $Space-4;
-  margin-bottom: $Space-8;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
 }
 
 .cta {
@@ -56,9 +61,9 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: $Space-5;
-  padding: $Space-16 $Space-6;
-  border-radius: $Border-Radius-Large;
-  border: 1px solid $c-Grey-200;
-  background: $c-Grey-50;
+  gap: $spacing-lg;
+  padding: $spacing-xs $spacing-lg;
+  border-radius: $border-radius-large;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-subtle);
 }

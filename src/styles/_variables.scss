@@ -1,70 +1,80 @@
 // =============================================================================
 // _variables.scss
-// Semantic design tokens built on top of primitives.
-// FIX: @use points to abstracts/_index, not styles/index.
-//      styles/index @forward's this file — importing it here would be circular.
+//
+// Semantic design tokens — maps primitive values to meaningful roles.
+// Three layers: brand colors → status colors → component tokens.
+//
+// Rules:
+//   - Only @use abstracts/index here, never primitives directly.
+//   - Always access color values via palette() — never reference $color-palette.
+//   - Component tokens must reference semantic tokens, not primitives.
+//   - Never import directly in components. Access through styles/index.scss.
 // =============================================================================
 
 @use "./abstracts/index" as *;
 
-// ─── Brand colors ─────────────────────────────────────────────────────────────
+// ─── Brand color ─────────────────────────────────────────────────────────────
 
-$Colors-Primary-Default: $c-Sea-800;
-$Colors-Primary-Light:   $c-Sea-300;
-$Colors-Primary-Dark:    $c-Sea-950;
+$color-primary-default: palette("sea", 800);
+$color-primary-light:   palette("sea", 300);
+$color-primary-dark:    palette("sea", 950);
 
-$Colors-Secondary-Default: $c-Sand-300;
-$Colors-Secondary-Light:   $c-Sand-100;
-$Colors-Secondary-Dark:    $c-Sand-500;
+$color-secondary-default: palette("sand", 300);
+$color-secondary-light:   palette("sand", 100);
+$color-secondary-dark:    palette("sand", 500);
 
-// ─── Status colors ────────────────────────────────────────────────────────────
+// ─── Status color ────────────────────────────────────────────────────────────
 
-$Colors-Success-Default: $c-Green-400;
-$Colors-Success-Light:   $c-Green-100;
-$Colors-Success-Dark:    $c-Green-600;
+$color-success-default: palette("green", 400);
+$color-success-light:   palette("green", 100);
+$color-success-dark:    palette("green", 600);
 
-$Colors-Info-Default: $c-Blue-400;
-$Colors-Info-Light:   $c-Blue-100;
-$Colors-Info-Dark:    $c-Blue-600;
+$color-info-default: palette("blue", 400);
+$color-info-light:   palette("blue", 100);
+$color-info-dark:    palette("blue", 600);
 
-$Colors-Error-Default: $c-Red-400;
-$Colors-Error-Light:   $c-Red-100;
-$Colors-Error-Dark:    $c-Red-600;
+$color-erro-default: palette("red", 400);
+$color-erro-light:   palette("red", 100);
+$color-erro-dark:    palette("red", 600);
 
-$Colors-Warning-Default: $c-Orange-400;
-$Colors-Warning-Light:   $c-Orange-100;
-$Colors-Warning-Dark:    $c-Orange-700;
+$color-warning-default: palette("orange", 400);
+$color-warning-light:   palette("orange", 100);
+$color-warning-dark:    palette("orange", 700);
 
-$Colors-Grey-Default: $c-Grey-700;
-$Colors-Grey-Light:   $c-Grey-0;
-$Colors-Grey-Dark:    $c-Grey-1000;
+$color-grey-default: palette("grey", 700);
+$color-grey-light:   palette("grey", 0);
+$color-grey-dark:    palette("grey", 1000);
 
-// ─── UI surface tokens ────────────────────────────────────────────────────────
+// ─── ui surface tokens ────────────────────────────────────────────────────────
 
-$Colors-UI-Background: $c-Blue-50;
-$Colors-UI-Text:       $c-Grey-950;
-$Colors-UI-Title:      $Colors-Primary-Default;
+$color-ui-Background: palette("blue", 50);
+$color-ui-Text:       palette("grey", 950);
+$color-ui-Title:      $color-primary-dark;
 
-// ─── Component tokens: Button ─────────────────────────────────────────────────
+// ─── component tokens: button ─────────────────────────────────────────────────
 
-$Component-Button-Primary-Background:    $Colors-Primary-Default;
-$Component-Button-Primary-Text:          $Colors-Grey-Light;
-$Component-Button-Primary-Border:        $Colors-Primary-Default;
-$Component-Button-Primary-Border-Hover:  $Colors-Primary-Light;
-$Component-Button-Primary-Border-Active: $Colors-Primary-Dark;
-$Component-Button-Primary-Border-Focus:  $Colors-Primary-Light;
+$component-button-primary-background:    $color-primary-default;
+$component-button-primary-text:          $color-grey-light;
+$component-button-primary-border:        $color-primary-default;
+$component-button-primary-border-Hover:  $color-primary-light;
+$component-button-primary-border-Active: $color-primary-dark;
+$component-button-primary-border-Focus:  $color-primary-light;
 
-$Component-Button-Secondary-Background:    $Colors-Secondary-Light;
-$Component-Button-Secondary-Text:          $Colors-Grey-Dark;
-$Component-Button-Secondary-Border:        $Colors-Secondary-Default;
-$Component-Button-Secondary-Border-Hover:  $Colors-Secondary-Light;
-$Component-Button-Secondary-Border-Active: $Colors-Secondary-Dark;
-$Component-Button-Secondary-Border-Focus:  $Colors-Secondary-Light;
+$component-button-secondary-background:    $color-secondary-light;
+$component-button-secondary-text:          $color-grey-dark;
+$component-button-secondary-border:        $color-secondary-default;
+$component-button-secondary-border-Hover:  $color-secondary-light;
+$component-button-secondary-border-Active: $color-secondary-dark;
+$component-button-secondary-border-Focus:  $color-secondary-light;
 
-// ─── Padding aliases ──────────────────────────────────────────────────────────
+// ─── padding aliases ──────────────────────────────────────────────────────────
 
-$Padding-Extra-Small: $Space-1;  // 4px
-$Padding-Small:       $Space-2;  // 8px
-$Padding-Medium:      $Space-3;  // 12px
-$Padding-Large:       $Space-4;  // 16px
-$Padding-Extra-large: $Space-6;  // 24px
+$spacing-zero: $space-0;
+$spacing-xs:  $space-1;
+$spacing-sm:  $space-2;
+$spacing-md:  $space-4;
+$spacing-lg:  $space-6;
+$spacing-xl:  $space-8;
+$spacing-xl2:  $space-10;
+$spacing-xl3:  $space-12;
+$spacing-xl4:  $space-16;

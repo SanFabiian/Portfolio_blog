@@ -1,36 +1,36 @@
 @use "../../../../styles/index" as *;
 
 .back {
-  margin-bottom: $Space-8;
+  margin-bottom: $spacing-xl;
   width: 100%;
 }
 
 .backLink {
   display: inline-flex;
   align-items: center;
-  gap: $Space-2;
-  font-size: $Font-Size-Small;
-  font-weight: $Font-Weight-Medium;
-  color: $c-Grey-500;
+  gap: $spacing-sm;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color 0.15s ease;
 
-  &:hover { color: $Colors-Primary-Default; }
+  &:hover { color: var(--color-action-primary); }
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  gap: $Space-4;
-  margin-bottom: $Space-10;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xs;
 }
 
 .cover {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: $Border-Radius-Medium;
+  border-radius: $border-radius-medium;
   overflow: hidden;
-  margin-bottom: $Space-10;
+  margin-bottom: $spacing-xs;
 }
 
 .coverImage {
@@ -42,13 +42,13 @@
 .coverPlaceholder {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: $Border-Radius-Medium;
-  background: $c-Grey-100;
-  border: 1px dashed $c-Grey-300;
+  border-radius: $border-radius-medium;
+  background:var(--color-text-disabled);
+  border: 1px dashed var(--color-text-disabled);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: $Space-10;
+  margin-bottom: $spacing-xs;
 }
 .back,
 .header,

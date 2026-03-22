@@ -14,16 +14,13 @@
 
 /* Size variants – width from spacing tokens */
 .small .image {
-  width: $Space-8;
+  width: $spacing-xl;
 }
 
 .medium .image {
-  width: $Space-12;
+  width: $spacing-xs;
 }
 
-.large .image {
-  width: $Space-16;
-}
 
 .visuallyHidden {
   position: absolute;

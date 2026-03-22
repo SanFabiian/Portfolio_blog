@@ -3,9 +3,9 @@
 // Editor window
 .window {
   width: 100%;
-  border-radius: $Border-Radius-Medium;
-  border: 1px solid $c-Grey-200;
-  background: $c-Grey-950;
+  border-radius: $border-radius-medium;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-text-primary);
   overflow: hidden;
   font-family: "Fira Code", "Cascadia Code", "Consolas", monospace;
 }
@@ -14,10 +14,10 @@
 .chrome {
   display: flex;
   align-items: center;
-  gap: $Space-2;
-  padding: $Space-3 $Space-4;
-  background: $c-Grey-1000;
-  border-bottom: 1px solid $c-Grey-800;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background:var(--color-text-disabled)0;
+  border-bottom: 1px solid var(--color-text-secondary);
 }
 
 .dot {
@@ -31,14 +31,14 @@
 }
 
 .filename {
-  margin-left: $Space-2;
-  font-size: $Font-Size-Caption;
-  color: $c-Grey-500;
+  margin-left: $spacing-sm;
+  font-size: $font-size-caption;
+  color: var(--color-text-secondary);
 }
 
 // Code area
 .body {
-  padding: $Space-4 0;
+  padding: $spacing-md 0;
   min-height: 320px;
 }
 
@@ -53,8 +53,8 @@
 // Single line
 .line {
   display: flex;
-  gap: $Space-4;
-  padding: 0 $Space-4;
+  gap: $spacing-md;
+  padding: 0 $spacing-md;
 
   &:hover {
     background: rgba(255, 255, 255, 0.03);
@@ -64,7 +64,7 @@
 .lineNumber {
   min-width: 20px;
   text-align: right;
-  color: $c-Grey-700;
+  color: var(--color-text-secondary);
   font-size: 12px;
   user-select: none;
   padding-top: 1px;
@@ -79,7 +79,7 @@
   display: inline-block;
   width: 2px;
   height: 1em;
-  background: $c-Sea-400;
+  background: var(--color-accent);
   vertical-align: text-bottom;
   margin-left: 1px;
   animation: blink 1s step-end infinite;

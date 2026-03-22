@@ -4,7 +4,7 @@
 .root {
   display: flex;
   flex-direction: column;
-  gap: $Space-6;
+  gap: $spacing-lg;
 }
 
 // ── Texto ────────────────────────────────────────────
@@ -13,13 +13,13 @@
   color: var(--color-text);
 }
 
-.h1 { font-size: 2rem; font-weight: 700; margin-bottom: $Space-2; }
-.h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: $Space-2; }
-.h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: $Space-2; }
+.h1 { font-size: 2rem; font-weight: 700; margin-bottom: $spacing-sm; }
+.h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: $spacing-sm; }
+.h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: $spacing-sm; }
 
 .blockquote {
   border-left: 3px solid var(--color-primary);
-  padding-left: $Space-4;
+  padding-left: $spacing-md;
   color: var(--color-text-secondary);
   font-style: italic;
 }
@@ -27,7 +27,7 @@
 .inlineCode {
   background: var(--color-surface);
   padding: 0.1em 0.4em;
-  border-radius: $Border-Radius-Extra-Small;
+  border-radius: $border-radius-extra-small;
   font-family: monospace;
   font-size: 0.9em;
 }
@@ -40,12 +40,12 @@
 
 .ul {
   list-style: disc;
-  padding-left: $Space-6;
+  padding-left: $spacing-lg;
 }
 
 .ol {
   list-style: decimal;
-  padding-left: $Space-6;
+  padding-left: $spacing-lg;
 }
 
 .li {
@@ -56,12 +56,12 @@
 .figure {
   display: flex;
   flex-direction: column;
-  gap: $Space-2;
+  gap: $spacing-sm;
 }
 
 .image {
   width: 100%;
-  border-radius: $Border-Radius-Medium;
+  border-radius: $border-radius-medium;
   object-fit: cover;
 }
 
@@ -75,27 +75,27 @@
 .imageGrid {
   display: grid;
   grid-template-columns: repeat(var(--grid-cols, 2), 1fr);
-  gap: $Space-4;
+  gap: $spacing-md;
 }
 
 .gridFigure {
   display: flex;
   flex-direction: column;
-  gap: $Space-2;
+  gap: $spacing-sm;
 }
 
 .gridImage {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: $Border-Radius-Medium;
+  border-radius: $border-radius-medium;
 }
 
 // ── Image + Text ─────────────────────────────────────
 .imageText {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: $Space-8;
+  gap: $spacing-xl;
   align-items: center;
 
   &[data-position="right"] {
@@ -111,14 +111,14 @@
 
 .imageTextImg {
   width: 100%;
-  border-radius: $Border-Radius-Medium;
+  border-radius: $border-radius-medium;
   object-fit: cover;
 }
 
 .imageTextContent {
   display: flex;
   flex-direction: column;
-  gap: $Space-4;
+  gap: $spacing-md;
 }
 
 // ── Responsive ───────────────────────────────────────

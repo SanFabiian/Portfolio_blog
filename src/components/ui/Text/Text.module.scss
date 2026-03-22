@@ -1,50 +1,50 @@
 @use "../../../styles/index" as *;
 
 .text {
-  font-family: $Font-Family-Base;
+  font-family: $font-family-base;
   margin: 0;
 }
 
 /* Variants – typography tokens */
 .body {
-  font-size: $Font-Size-Body;
-  line-height: $Line-Height-Body;
+  font-size: $font-size-body;
+  line-height:  $line-height-body;
 }
 
 .small {
-  font-size: $Font-Size-Small;
-  line-height: $Line-Height-Small;
+  font-size: $font-size-small;
+  line-height:  $line-height-small;
 }
 
 .caption {
-  font-size: $Font-Size-Caption;
-  line-height: $Line-Height-Small;
+  font-size: $font-size-caption;
+  line-height:  $line-height-small;
 }
 
 /* Font weight */
 .weight-regular {
-  font-weight: $Font-Weight-Regular;
+  font-weight: $font-weight-regular;
 }
 
 .weight-medium {
-  font-weight: $Font-Weight-Medium;
+  font-weight: $font-weight-medium;
 }
 
 .weight-bold {
-  font-weight: $Font-Weight-Bold;
+  font-weight: $font-weight-bold;
 }
 
 /* Color variants – design tokens */
 .color-default {
-  color: $Colors-UI-Text;
+  color: var(--color-text-primary);
 }
 
 .color-muted {
-  color: $Colors-Grey-Default;
+  color: var(--color-bg-subtle)Grey-Default;
 }
 
 .color-primary {
-  color: $Colors-Primary-Default;
+  color: var(--color-action-primary);
 }
 
 .color-inherit {

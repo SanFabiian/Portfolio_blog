@@ -72,9 +72,9 @@ abstracts/primitives/spacing.scss
 
 Examples:
 
-$Space-0
-$Space-1
-$Space-2
+$spacing-zero
+$spacing-xs
+$spacing-sm
 
 ---
 
@@ -82,9 +82,9 @@ $Space-2
 
 Examples:
 
-$Border-Radius-Extra-Small
-$Border-Radius-Small
-$Border-Radius-Medium
+$border-radius-extra-small
+$border-radius-small
+$border-radius-medium
 
 ---
 

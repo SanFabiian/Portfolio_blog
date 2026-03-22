@@ -2,17 +2,17 @@
 
 .actions {
   display: flex;
-  gap: $Space-4;
+  gap: $spacing-md;
 }
 
 .actionLink {
-  font-size: $Font-Size-Small;
-  font-weight: $Font-Weight-Medium;
-  color: $Colors-Primary-Default;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  color: var(--color-action-primary);
   text-decoration: none;
   transition: color 0.15s ease;
 
   &:hover {
-    color: $Colors-Primary-Dark;
+    color: var(--color-bg-subtle)Primary-Dark;
   }
 }

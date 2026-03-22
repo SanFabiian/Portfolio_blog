@@ -1,15 +1,19 @@
 // =============================================================================
 // styles/index.scss
-// Single entry point for all components.
 //
-// Usage in every component module:
+// Main entry point for all component modules.
+//
+// Usage:
 //   @use "../../../styles/index" as *;
 //   (adjust the relative path based on component depth)
 //
-// Rule: @forward only — never @use here.
-// Order matters: primitives → semantic tokens → mixins
+// Rules:
+//   - @forward only. Never @use, never output CSS here.
+//   - Order matters: primitives → functions → semantic tokens → mixins.
+//   - The :root block belongs in globales.scss, not here.
 // =============================================================================
 
-@forward "./abstracts/index";  // $Space-*, $c-*, $Border-Radius-*, $Font-*
-@forward "./variables";         // $Colors-*, $Component-*, $Padding-*
+@forward "./abstracts/index";  // $space-*, , $Border-Radius-*, $Font-*
+@forward "./variables";         // var(--color-bg-subtle)*, $Component-*, $Padding-*
 @forward "./mixins";            // boxShadow(), focusRing(), truncate(), etc.
+@forward "./functions";         // color()

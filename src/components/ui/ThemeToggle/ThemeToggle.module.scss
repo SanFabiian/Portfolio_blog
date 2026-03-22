@@ -1,0 +1,29 @@
+@use "../../../styles/index" as *;
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: $border-radius-small;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: var(--color-bg-subtle);
+    border-color: var(--color-border-strong);
+  }
+
+  &:focus-visible {
+    @include focusRing;
+  }
+}
+
+.icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}

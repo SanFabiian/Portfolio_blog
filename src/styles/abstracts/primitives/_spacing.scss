@@ -1,27 +1,22 @@
 // =============================================================================
-// Spacing tokens
-// No dependencies — raw values only.
-// Never import this file directly. Use styles/index.scss instead.
+// primitives/_spacing.scss
+//
+// Base spacing scale built on a 4px grid unit ($space-N = 4px × N).
+// These are raw values — components should consume semantic aliases
+// ($spacing-sm, $spacing-md) defined in _variables.scss, not $space-N directly.
+//
+// Rules:
+//   - No dependencies. Never @use anything in this file.
+//   - Never import directly in components. Access through styles/index.scss.
 // =============================================================================
 
-$Space-0:  0px;
-$Space-1:  4px;
-$Space-2:  8px;
-$Space-3:  12px;
-$Space-4:  16px;
-$Space-5:  20px;
-$Space-6:  24px;
-$Space-7:  28px;
-$Space-8:  32px;
-$Space-9:  36px;
-$Space-10: 40px;
-$Space-11: 44px;
-$Space-12: 48px;
-$Space-13: 52px;
-$Space-14: 56px;
-$Space-15: 60px;
-$Space-16: 64px;
-$Space-17: 68px;
-$Space-18: 72px;
-$Space-19: 76px;
-$Space-20: 80px;
+$space-0:  0;
+$space-1:  0.4rem;
+$space-2:  0.8rem;
+$space-3:  1.2rem;
+$space-4:  1.6rem;
+$space-6:  2.4rem;
+$space-8:  3.2rem;
+$space-10: 4.0rem;
+$space-12: 4.8rem;
+$space-16: 6.4rem;

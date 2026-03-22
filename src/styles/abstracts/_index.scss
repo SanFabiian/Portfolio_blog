@@ -1,8 +1,14 @@
 // =============================================================================
 // abstracts/_index.scss
-// Aggregates all primitive tokens via @forward.
-// Rule: @forward only — never @use here.
-// Consumers should always import styles/index.scss, not this file directly.
+//
+// Barrel file — aggregates all primitive tokens and functions via @forward.
+// This is the internal entry point consumed by _variables.scss and _mixins.scss.
+//
+// Rules:
+//   - @forward only. Never @use, never output CSS here.
+//   - Consumers outside of styles/ should always use styles/index.scss,
+//     not this file directly.
+//   - Order: spacing → colors → radius → typography → functions.
 // =============================================================================
 
 @forward "./primitives/spacing";

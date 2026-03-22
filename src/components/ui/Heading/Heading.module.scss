@@ -1,26 +1,26 @@
 @use "../../../styles/index" as *;
 
 .heading {
-  font-family: $Font-Family-Base;
-  font-weight: $Font-Weight-Bold;
-  color: $Colors-UI-Title;
+  font-family: $font-family-base;
+  font-weight: $font-weight-bold;
+  color: var(--color-action-primary);
   margin: 0;
 }
 
 /* Levels – typography tokens (H1 48px, H2 32px, H3 24px) */
 .h1 {
-  font-size: $Font-Size-H1;
-  line-height: $Line-Height-H1;
+  font-size: $font-size-h1;
+  line-height:  $line-height-h1;
 }
 
 .h2 {
-  font-size: $Font-Size-H2;
-  line-height: $Line-Height-H2;
+  font-size: $font-size-h2;
+  line-height:  $line-height-h2;
 }
 
 .h3 {
-  font-size: $Font-Size-H3;
-  line-height: $Line-Height-H3;
+  font-size: $font-size-h3;
+  line-height:  $line-height-h3;
 }
 
 /* Alignment */

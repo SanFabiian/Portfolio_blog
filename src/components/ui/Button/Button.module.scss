@@ -4,75 +4,75 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: $Space-1;
-  border-radius: $Border-Radius-Small;
+  gap: $spacing-xs;
+  border-radius: $border-radius-small;
   cursor: pointer;
-  font-weight: $Font-Weight-Medium;
+  font-weight: $font-weight-medium;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 /* Sizes – spacing and typography tokens */
 .sm {
-  height: $Space-8;
-  padding: $Padding-Small $Padding-Medium;
-  font-size: $Font-Size-Small;
+  height: $spacing-xl;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-small;
 }
 
 .md {
-  height: $Space-10;
-  padding: $Padding-Medium $Padding-Large;
-  font-size: $Font-Size-Body;
+  height: $spacing-xs;
+  padding: $spacing-md $spacing-lg;
+  font-size: $font-size-body;
 }
 
 .lg {
-  height: $Space-12;
-  padding: $Padding-Small $Padding-Extra-large;
-  font-size: $Font-Size-Body;
+  height: $spacing-xs;
+  padding: $spacing-sm $spacing-xl;
+  font-size: $font-size-body;
 }
 
 /* Variants */
 .primary {
-  border: 1px solid $Component-Button-Primary-Border;
-  background: $Component-Button-Primary-Background;
-  color: $Component-Button-Primary-Text;
+  border: 1px solid var(--color-action-primary);
+  background: var(--color-action-primary);
+  color: var(--color-text-on-accent);
 
   &:hover:not(.disabled) {
-    border-color: $Component-Button-Primary-Border-Hover;
+    border-color: var(--color-action-primary);
   }
 
   &:focus-visible {
-    outline: 2px solid $Component-Button-Primary-Border-Focus;
-    outline-offset: $Space-1;
+    outline: 2px solid var(--color-action-primary);
+    outline-offset: $spacing-xs;
   }
 }
 
 .secondary {
-  border: 1px solid $Component-Button-Secondary-Border;
-  background: $Component-Button-Secondary-Background;
-  color: $Component-Button-Secondary-Text;
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent);
+  color:var(--color-accent);
 
   &:hover:not(.disabled) {
-    border-color: $Component-Button-Secondary-Border-Hover;
+    border-color: var(--color-accent)-Hover;
   }
 
   &:focus-visible {
-    outline: 2px solid $Component-Button-Secondary-Border-Focus;
-    outline-offset: $Space-1;
+    outline: 2px solid var(--color-accent)-Focus;
+    outline-offset: $spacing-xs;
   }
 }
 
 .ghost {
   border: 1px solid transparent;
   background: transparent;
-  color: $Colors-Primary-Default;
+  color: var(--color-action-primary);
 
   &:hover:not(.disabled) {
-    color: $Colors-Primary-Light;
+    color: var(--color-action-primary-hover);
   }
 
   &:focus-visible {
-    outline: 2px solid $Colors-Primary-Default;
-    outline-offset: $Space-1;
+    outline: 2px solid var(--color-action-primary);
+    outline-offset: $spacing-xs;
   }
 }
 

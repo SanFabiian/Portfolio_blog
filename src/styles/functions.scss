@@ -1,0 +1,29 @@
+// =============================================================================
+// abstracts/_functions.scss
+//
+// SASS helper functions. Currently exposes color() for type-safe access
+// to the $color-palette map defined in primitives/_colors.scss.
+//
+// Usage:
+//   color("sea", 500)   → #028DF5
+//   color("grey", 100)  → #EDEDED
+//
+// Rules:
+//   - Only @use primitives here — never semantic tokens or components.
+//   - Functions must fail loudly at compile time, never silently return null.
+// =============================================================================
+
+@use "./abstracts/primitives/colors" as prim;
+@use 'sass:map';
+
+@function palette($ramp, $scale) {
+  $palette: map.get(prim.$color-palette, $ramp);
+  @if not $palette {
+    @error "Color '#{$ramp}' no existe.";
+  }
+  $value: map.get($palette, $scale);
+  @if not $value {
+    @error "Escala #{$scale} no existe en '#{$ramp}'.";
+  }
+  @return $value;
+}
