@@ -13,60 +13,6 @@
 
 @use "./abstracts/index" as *;
 
-// ─── Brand color ─────────────────────────────────────────────────────────────
-
-$color-primary-default: palette("sea", 800);
-$color-primary-light:   palette("sea", 300);
-$color-primary-dark:    palette("sea", 950);
-
-$color-secondary-default: palette("sand", 300);
-$color-secondary-light:   palette("sand", 100);
-$color-secondary-dark:    palette("sand", 500);
-
-// ─── Status color ────────────────────────────────────────────────────────────
-
-$color-success-default: palette("green", 400);
-$color-success-light:   palette("green", 100);
-$color-success-dark:    palette("green", 600);
-
-$color-info-default: palette("blue", 400);
-$color-info-light:   palette("blue", 100);
-$color-info-dark:    palette("blue", 600);
-
-$color-erro-default: palette("red", 400);
-$color-erro-light:   palette("red", 100);
-$color-erro-dark:    palette("red", 600);
-
-$color-warning-default: palette("orange", 400);
-$color-warning-light:   palette("orange", 100);
-$color-warning-dark:    palette("orange", 700);
-
-$color-grey-default: palette("grey", 700);
-$color-grey-light:   palette("grey", 0);
-$color-grey-dark:    palette("grey", 1000);
-
-// ─── ui surface tokens ────────────────────────────────────────────────────────
-
-$color-ui-Background: palette("blue", 50);
-$color-ui-Text:       palette("grey", 950);
-$color-ui-Title:      $color-primary-dark;
-
-// ─── component tokens: button ─────────────────────────────────────────────────
-
-$component-button-primary-background:    $color-primary-default;
-$component-button-primary-text:          $color-grey-light;
-$component-button-primary-border:        $color-primary-default;
-$component-button-primary-border-Hover:  $color-primary-light;
-$component-button-primary-border-Active: $color-primary-dark;
-$component-button-primary-border-Focus:  $color-primary-light;
-
-$component-button-secondary-background:    $color-secondary-light;
-$component-button-secondary-text:          $color-grey-dark;
-$component-button-secondary-border:        $color-secondary-default;
-$component-button-secondary-border-Hover:  $color-secondary-light;
-$component-button-secondary-border-Active: $color-secondary-dark;
-$component-button-secondary-border-Focus:  $color-secondary-light;
-
 // ─── padding aliases ──────────────────────────────────────────────────────────
 
 $spacing-zero: $space-0;

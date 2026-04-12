@@ -15,11 +15,11 @@
 
 // Elevation shadow using the blue primitive scale
 @mixin boxShadow {
-  box-shadow: 0px 2px 4px 0 palette("blue", 100);
+  box-shadow: 0px 2px 4px 0 var(--c-blue-100);
 }
 
 // Consistent focus ring for interactive elements
-@mixin focusRing($color: palette("sea", 300)) {
+@mixin focusRing($color: var(--c-sea-300)) {
   outline: 2px solid $color;
   outline-offset: $space-16;
 }
@@ -43,7 +43,27 @@
   white-space: nowrap;
   border: 0;
 }
+@mixin toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: $border-radius-small;
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
 
+  &:hover {
+    background: var(--color-bg-subtle);
+    border-color: var(--color-border-strong);
+  }
+
+  &:focus-visible {
+    @include focusRing;
+  }
+}
 // Responsive breakpoints
 @mixin sm  { @media (min-width: 640px)  { @content; } }
 @mixin md  { @media (min-width: 768px)  { @content; } }

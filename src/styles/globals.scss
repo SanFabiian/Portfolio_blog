@@ -1,5 +1,5 @@
 // =============================================================================
-// globales.scss
+// globals.scss
 //
 // Base reset, document styles, and theme token definitions.
 // Imported once in app/layout.tsx — never in components.
@@ -12,13 +12,14 @@
 
 @use "./functions"        as fn;
 @use "./abstracts/index"  as tokens;
+@use "./mixins"          as *;
 
 // ─── Primitive custom properties ─────────────────────────────────────────────
-// Generated from $color-palette map — available as var(--c-sea-500) etc.
+// Generated from $palette map — available as var(--c-sea-500) etc.
 // Use these only when building semantic tokens below, not in components.
 
 :root {
-  @each $name, $ramp in tokens.$color-palette {
+  @each $name, $ramp in tokens.$palette {
     @each $scale, $value in $ramp {
       --c-#{$name}-#{$scale}: #{$value};
     }
@@ -48,16 +49,40 @@
 
   // Brand — primary actions (sea)
   --color-action-primary:        var(--c-sea-800);
-  --color-action-primary-hover:  var(--c-sea-600);
+  --color-action-primary-hover:  var(--c-sea-950);
   --color-action-primary-active: var(--c-sea-950);
   --color-action-primary-subtle: var(--c-sea-50);
   --color-action-primary-text:   var(--c-grey-0);
 
   // Brand — secondary / accent (sand)
-  --color-accent:        var(--c-sand-400);
-  --color-accent-hover:  var(--c-sand-500);
+  --color-accent:        var(--c-sand-100);
+  --color-accent-hover:  var(--c-sand-300);
+  --color-accent-active: var(--c-sand-300);
   --color-accent-subtle: var(--c-sand-50);
-  --color-accent-text:   var(--c-grey-950);
+  --color-accent-text:   var(--c-sand-900);
+
+  // ---------- Call to actions
+  // Ghost
+  --color-ghost:        var(--c-sea-800);
+  --color-ghost-hover:  var(--c-sea-100);
+  --color-ghost-active: var(--c-sea-100);
+  --color-ghost-subtle: var(--c-sea-50);
+  --color-ghost-text:   var(--c-sea-800);
+
+  // Line
+  --color-line:        var(--c-sea-800);
+  --color-line-hover:  var(--c-sea-100);
+  --color-line-active: var(--c-sea-100);
+  --color-line-subtle: var(--c-sea-50);
+  --color-line-text:   var(--c-sea-800);
+
+  // Rounded
+  --color-rounded:        var(--c-grey-0);
+  --color-rounded-hover:  var(--c-sea-950);
+  --color-rounded-active: var(--c-sea-950);
+  --color-rounded-subtle: var(--c-sea-50);
+  --color-rounded-text:   var(--c-sea-800);
+
 
   // Status
   --color-success:        var(--c-green-500);
@@ -111,8 +136,31 @@
   // Brand — accent (sand stays warm, slightly brighter)
   --color-accent:        var(--c-sand-300);
   --color-accent-hover:  var(--c-sand-200);
+  --color-accent-active: var(--c-sand-100);
   --color-accent-subtle: var(--c-sand-950);
   --color-accent-text:   var(--c-grey-950);
+
+  // ---------- Call to actions
+  // Ghost
+  --color-ghost:        var(--c-grey-0);
+  --color-ghost-hover:  var(--c-sea-800);
+  --color-ghost-active: var(--c-sea-100);
+  --color-ghost-subtle: var(--c-sea-50);
+  --color-ghost-text:   var(--c-grey-0);
+
+  // Line
+  --color-line:        var(--c-grey-0);
+  --color-line-hover:  var(--c-sea-800);
+  --color-line-active: var(--c-sea-100);
+  --color-line-subtle: var(--c-sea-50);
+  --color-line-text:   var(--c-grey-0);
+
+  // Rounded
+  --color-rounded:        var(--c-grey-0);
+  --color-rounded-hover:  var(--c-sea-800);
+  --color-rounded-active: var(--c-sea-950);
+  --color-rounded-subtle: var(--c-sea-50);
+  --color-rounded-text:   var(--c-grey-0);
 
   // Status (lighter tones for dark backgrounds)
   --color-success:        var(--c-green-400);
@@ -186,4 +234,7 @@ button {
 ul,
 ol {
   list-style: none;
+}
+.h100 {
+  height: 100%;
 }

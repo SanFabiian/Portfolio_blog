@@ -1,0 +1,11 @@
+@use "../../../styles/index" as *;
+
+.toggle {
+  @include toggle;
+}
+.flag {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+}

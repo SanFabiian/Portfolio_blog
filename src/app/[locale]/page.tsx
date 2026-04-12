@@ -1,17 +1,15 @@
 import { getTranslations } from "next-intl/server";
-import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Grid } from "@/components/layout/Grid";
-import { Stack } from "@/components/layout/Stack";
-import { Heading } from "@/components/ui/Heading";
-import { Text } from "@/components/ui/Text";
-import { Button } from "@/components/ui/Button";
-import { ProjectCard } from "@/components/ui/ProjectCard";
-import { PostCard } from "@/components/ui/PostCard";
-import { CodeAnimation } from "@/components/ui/CodeAnimation";
+
+import { Container, Section, Grid, Stack  } from "@/components/layout/index";
+import { Heading, Text, Button, ProjectCard, PostCard, CodeAnimation } from "@/components/ui/index";
+
 import { ArrowRight, Mail } from "lucide-react";
 import { getFeaturedProjects, getLatestPosts } from "@/services/sanity";
+
 import styles from "./page.module.scss";
+import { Link } from "@/i18n/navigation";
+
+import { Footer } from "@/components/layout";
 
 export default async function HomePage({
   params,
@@ -27,11 +25,11 @@ export default async function HomePage({
   ]);
 
   return (
-    <main>
+    <main className={styles.main}>
       {/* Hero */}
-      <Section spacing="xl">
-        <Container>
-          <div className={styles.hero}>
+      <Section className={styles.curtain}>
+        <Container className="h100">
+          <div className={`${styles.hero} ${styles.h100}`}>
             <div className={styles.heroText}>
               <p className={styles.heroEyebrow}>{t("eyebrow")}</p>
               <Heading level="h1" className={styles.heroHeading}>
@@ -41,10 +39,10 @@ export default async function HomePage({
                 {t("description")}
               </Text>
               <Stack direction="row" gap="sm" wrap="wrap">
-                <Button as="a" href="/projects" size="lg" iconRight={<ArrowRight size={16} />}>
+                <Button as={Link} href="/projects" size="lg" iconRight={<ArrowRight size={16} />}>
                   {t("cta_projects")}
                 </Button>
-                <Button as="a" href="/blog" variant="secondary" size="lg">
+                <Button as={Link} href="/blog" variant="secondary" size="lg" iconRight={<ArrowRight size={16} />}>
                   {t("cta_blog")}
                 </Button>
               </Stack>
@@ -57,7 +55,7 @@ export default async function HomePage({
       </Section>
 
       {/* Featured Projects */}
-      <Section spacing="lg">
+      <Section className={styles.curtain}>
         <Container>
           <div className={styles.sectionHeader}>
             <div>
@@ -77,7 +75,7 @@ export default async function HomePage({
       </Section>
 
       {/* Latest Posts */}
-      <Section spacing="lg">
+      <Section className={styles.curtain}>
         <Container>
           <div className={styles.sectionHeader}>
             <div>
@@ -97,7 +95,7 @@ export default async function HomePage({
       </Section>
 
       {/* CTA */}
-      <Section spacing="lg">
+      <Section className={styles.curtain}>
         <Container>
           <div className={styles.cta}>
             <Heading level="h2">{t("cta_heading")}</Heading>
@@ -107,6 +105,7 @@ export default async function HomePage({
             </Button>
           </div>
         </Container>
+        <Footer />
       </Section>
     </main>
   );

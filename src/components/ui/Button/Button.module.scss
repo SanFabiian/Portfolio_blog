@@ -1,43 +1,37 @@
 @use "../../../styles/index" as *;
 
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: $spacing-xs;
   border-radius: $border-radius-small;
-  cursor: pointer;
-  font-weight: $font-weight-medium;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  font-size: $font-size-small;
+  line-height: normal;
+  cursor: pointer;
+    &>div {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 /* Sizes – spacing and typography tokens */
 .sm {
-  height: $spacing-xl;
-  padding: $spacing-sm $spacing-md;
-  font-size: $font-size-small;
+  padding: $spacing-xs $spacing-md;
 }
 
 .md {
-  height: $spacing-xs;
-  padding: $spacing-md $spacing-lg;
-  font-size: $font-size-body;
+  padding: $spacing-sm $spacing-lg;
 }
 
 .lg {
-  height: $spacing-xs;
-  padding: $spacing-sm $spacing-xl;
-  font-size: $font-size-body;
+  padding: $spacing-md $spacing-xl;
 }
 
 /* Variants */
 .primary {
-  border: 1px solid var(--color-action-primary);
   background: var(--color-action-primary);
   color: var(--color-text-on-accent);
 
   &:hover:not(.disabled) {
-    border-color: var(--color-action-primary);
+   background: var(--color-action-primary-hover);
   }
 
   &:focus-visible {
@@ -47,32 +41,84 @@
 }
 
 .secondary {
-  border: 1px solid var(--color-accent);
   background: var(--color-accent);
-  color:var(--color-accent);
+  color:var(--color-accent-text);
 
   &:hover:not(.disabled) {
-    border-color: var(--color-accent)-Hover;
+   background: var(--color-accent-hover);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-accent)-Focus;
+    outline: 2px solid var(--color-accent);
     outline-offset: $spacing-xs;
   }
 }
 
 .ghost {
-  border: 1px solid transparent;
   background: transparent;
-  color: var(--color-action-primary);
+  color: var(--color-ghost-text);
 
   &:hover:not(.disabled) {
-    color: var(--color-action-primary-hover);
+    background: var(--color-ghost-hover);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-action-primary);
+    outline: 2px solid var(--color-ghost-hover);
     outline-offset: $spacing-xs;
+  }
+}
+.line {
+  border: solid 1px var(--color-line);
+  background: transparent;
+  color: var(--color-line-text);
+
+  &:hover:not(.disabled) {
+    background: var(--color-line-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-line-hover);
+    outline-offset: $spacing-xs;
+  }
+}
+.rounded {
+  background: transparent;
+  color: var(--color-rounded-text);
+  border-radius: $border-radius-pill;
+  position: relative;
+  transition: color 0.15s ease;
+  cursor: pointer;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--color-rounded-hover);
+    border-radius: $border-radius-pill;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+  }
+  &:hover:not(.disabled) {
+    color: var(--color-rounded);
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-rounded-hover);
+    outline-offset: $spacing-xs;
+  }
+
+  &.active,
+  &:global(.active) {
+    color: var(--color-rounded);
+    &::before {
+      transform: scaleX(1);
+    }
   }
 }
 

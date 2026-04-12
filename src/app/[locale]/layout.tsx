@@ -3,10 +3,10 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
-import "@/styles/globales.scss";
+import "@/styles/globals.scss";
 import "@/styles/index.scss";
-import { Navbar, Footer } from "@/components/layout";
-import { Container } from "@/components/layout/Container";
+
+import { Navbar } from "@/components/layout";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -53,10 +53,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <Navbar />
-      <main>{children}</main>
-      <Container>
-        <Footer />
-      </Container>
+      {children}
     </NextIntlClientProvider>
   );
 }

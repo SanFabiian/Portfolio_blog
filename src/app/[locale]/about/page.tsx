@@ -1,15 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Stack } from "@/components/layout/Stack";
-import { Heading } from "@/components/ui/Heading";
-import { Text } from "@/components/ui/Text";
-import { Tag } from "@/components/ui/Tag";
-import { PortableText } from "@/components/ui/PortableText/PortableText";
-import { getAbout } from "@/services/sanity";
+import { Container, Section, Stack } from "@/components/layout/index";
+import { Heading, Text, Tag, PortableText, Button } from "@/components/ui/index";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { getAbout } from "@/services/sanity";
 import styles from "./page.module.scss";
 
 export default async function AboutPage({

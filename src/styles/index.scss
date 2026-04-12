@@ -10,7 +10,7 @@
 // Rules:
 //   - @forward only. Never @use, never output CSS here.
 //   - Order matters: primitives → functions → semantic tokens → mixins.
-//   - The :root block belongs in globales.scss, not here.
+//   - The :root block belongs in globals.scss, not here.
 // =============================================================================
 
 @forward "./abstracts/index";  // $space-*, , $Border-Radius-*, $Font-*

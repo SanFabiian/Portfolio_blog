@@ -9,12 +9,10 @@ export function ThemeToggle() {
     <button
       onClick={toggle}
       className={styles.toggle}
-      // Valores estáticos en SSR — nunca cambian entre server y client
       aria-label="Toggle theme"
       suppressHydrationWarning
     >
       <span className={styles.icon} aria-hidden suppressHydrationWarning>
-        {/* Solo renderiza el ícono dinámico después del mount */}
         {mounted ? (isDark ? "☀️" : "🌙") : "🌙"}
       </span>
     </button>

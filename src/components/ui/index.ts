@@ -11,6 +11,8 @@ export { Spinner }      from "./Spinner";
 export { Tag }          from "./Tag";
 export { Text }         from "./Text";
 export { PortableText } from "./PortableText"
+export { ToggleLang }    from "./ToggleLang";
+export { CodeAnimation } from "./CodeAnimation";
 
 export type { CardProps }         from "./Card";
 export type { ContentCardProps }  from "./ContentCard";
