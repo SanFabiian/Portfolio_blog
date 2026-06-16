@@ -4,11 +4,11 @@ import Image from "next/image";
 
 import logo from "@/assets/logo/logo.svg"
 import isotipo from "@/assets/logo/isotipo.svg"
-import logo_dark from "@/assets/logo/logo-dark.svg"
-import isotipo_dark from "@/assets/logo/logo-dark.svg"
+import logo_white from "@/assets/logo/logo-white.svg"
+import isotipo_white from "@/assets/logo/logo-white.svg"
 
 export type LogoSize = "small" | "medium" | "large";
-export type LogoVariant = "logo" | "isotipo" | "logo_dark" | "isotipo_dark";
+export type LogoVariant = "logo" | "isotipo" | "logo_white" | "isotipo_white";
 
 export interface LogoProps {
   size?: LogoSize;
@@ -21,8 +21,8 @@ export interface LogoProps {
 const logoMap = {
   logo: logo,
   isotipo: isotipo,
-  logo_dark: logo_dark,
-  isotipo_dark: isotipo_dark
+  logo_white: logo_white,
+  isotipo_white: isotipo_white
 }
 
 export function Logo({
