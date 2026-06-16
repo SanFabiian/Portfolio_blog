@@ -1,37 +1,42 @@
 # AI Context
 
-This repository is a personal portfolio and blog.
+This repository is a personal portfolio and blog for sanfabiian.com.
 
 Stack:
-- Next.js 14 (App Router)
+- Next.js 16 (App Router)
+- React 19
 - TypeScript
-- SASS architecture (7-1 pattern)
-- Sanity CMS
-- Framer Motion
+- SCSS Modules + SASS 7-1 architecture
+- Sanity v4 CMS (studio at /studio)
+- Framer Motion (animations)
+- Lenis (smooth scroll, via SmoothScroll component)
+- next-intl (i18n: en + es)
 - clsx
 - lucide-react
 
 Goals:
 - Fast performance
 - Clean component architecture
-- Scalable for future projects
+- Scalable for future projects and subdomains
 
 Structure:
 
-app/
-  projects/
-  blog/
+src/
+  app/
+    [locale]/       → i18n routes (en|es): home, projects, blog, about, playground
+    studio/         → Sanity Studio
 
-components/
-  ui/
-  layout/
-  projects/
-  blog/
-
-styles/
-  abstracts/
   components/
-  pages/
+    ui/             → design system components
+    layout/         → structural components (Navbar, Footer, Container, Grid, etc.)
+
+  styles/           → design tokens and global styles
+  sanity/           → schemas and client
+  services/         → GROQ queries (sanity.ts)
+  i18n/             → routing and navigation helpers
+  messages/         → en.json, es.json
+  hooks/            → custom hooks
+  types/            → TypeScript types
 
 Rules:
 
@@ -40,3 +45,4 @@ Rules:
 - Use next/image for images
 - Use framer-motion for animations
 - Avoid large components
+- i18n is handled exclusively with next-intl (do NOT use react-i18next or i18next)

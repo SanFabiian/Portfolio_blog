@@ -27,6 +27,7 @@
 ## 🔄 Phase 5 — Pending
 
 - [ ] About page
+- [ ] Footer — implement and reconnect (currently commented out in layout)
 - [ ] SEO — dynamic metadata + sitemap + hreflang
 - [ ] Framer Motion animations
 - [ ] Home page polish with real data
