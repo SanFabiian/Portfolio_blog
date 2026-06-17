@@ -1,0 +1,19 @@
+@use "../../styles/index" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-md;
+  padding: $spacing-xl 0;
+  max-width: 48rem;
+}
+
+.code {
+  font-size: $font-size-caption;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-disabled);
+  margin: 0;
+}
