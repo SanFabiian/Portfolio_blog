@@ -59,7 +59,7 @@ export default async function HomePage({
           <div className={styles.sectionHeader}>
             <div>
               <p className={styles.eyebrow}>{txt(settings?.selected_work, t("selected_work"))}</p>
-              <Text variant="secondary">{txt(settings?.selected_work_desc, t("selected_work_desc"))}</Text>
+              <Text color="muted">{txt(settings?.selected_work_desc, t("selected_work_desc"))}</Text>
             </div>
             <Button as={Link} href="/projects" variant="ghost" iconRight={<ArrowRight size={16} />}>
               {txt(settings?.all_projects, t("all_projects"))}
@@ -79,7 +79,7 @@ export default async function HomePage({
           <div className={styles.sectionHeader}>
             <div>
               <p className={styles.eyebrow}>{txt(settings?.from_blog, t("from_blog"))}</p>
-              <Text variant="secondary">{txt(settings?.from_blog_desc, t("from_blog_desc"))}</Text>
+              <Text color="muted">{txt(settings?.from_blog_desc, t("from_blog_desc"))}</Text>
             </div>
             <Button as={Link} href="/blog" variant="ghost" iconRight={<ArrowRight size={16} />}>
               {txt(settings?.all_posts, t("all_posts"))}
@@ -87,12 +87,12 @@ export default async function HomePage({
           </div>
           <div className={styles.blogFeed}>
             {latestPosts[0] && (
-              <PostRow post={latestPosts[0]} featured />
+              <PostRow post={latestPosts[0]} featured locale={locale} />
             )}
             {latestPosts.slice(1).length > 0 && (
               <Grid cols={1} colsMd={2} gap="md">
                 {latestPosts.slice(1).map((post) => (
-                  <PostRow key={post.slug} post={post} />
+                  <PostRow key={post.slug} post={post} locale={locale} />
                 ))}
               </Grid>
             )}
@@ -105,7 +105,7 @@ export default async function HomePage({
         <Container>
           <div className={styles.cta}>
             <Heading level="h2">{txt(settings?.cta_heading, t("cta_heading"))}</Heading>
-            <Text variant="secondary">{txt(settings?.cta_desc, t("cta_desc"))}</Text>
+            <Text color="muted">{txt(settings?.cta_desc, t("cta_desc"))}</Text>
             <Button as="a" href="mailto:hello@sanfabiian.com" size="lg" iconLeft={<Mail size={16} />}>
               {txt(settings?.cta_button, t("cta_button"))}
             </Button>

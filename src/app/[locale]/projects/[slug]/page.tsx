@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Tag } from "@/components/ui/Tag";
 import { Button } from "@/components/ui/Button";
 import { PortableText } from "@/components/ui/PortableText/PortableText";
+import Image from "next/image";
 import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import { getProjectBySlug, getProjects } from "@/services/sanity";
 import styles from "./page.module.scss";
@@ -71,7 +72,7 @@ export default async function ProjectDetailPage({
           <div className={styles.header}>
             <Stack direction="row" align="center" gap="sm" wrap="wrap">
             {project.category && (
-              <Badge variant="info">
+              <Badge variant="default">
                 {project.category.label}
               </Badge>
             )}
@@ -80,7 +81,7 @@ export default async function ProjectDetailPage({
             ))}
             </Stack>
             <Heading level="h1">{project.title}</Heading>
-            <Text variant="secondary">{project.description}</Text>
+            <Text color="muted">{project.description}</Text>
             <Stack direction="row" align="center" gap="lg" wrap="wrap">
               {formattedDate && <Text variant="small">{formattedDate}</Text>}
               <Stack direction="row" gap="sm">
@@ -99,18 +100,18 @@ export default async function ProjectDetailPage({
           </div>
           {project.image ? (
             <div className={styles.cover}>
-              <img src={project.image} alt={project.title} className={styles.coverImage} />
+              <Image src={project.image} alt={project.title} fill className={styles.coverImage} />
             </div>
           ) : (
             <div className={styles.coverPlaceholder}>
-              <Text variant="secondary">{t("cover_soon")}</Text>
+              <Text color="muted">{t("cover_soon")}</Text>
             </div>
           )}
           <div className={styles.content}>
             {project.content ? (
               <PortableText value={project.content} />
             ) : (
-              <Text variant="secondary">{t("content_soon")}</Text>
+              <Text color="muted">{t("content_soon")}</Text>
             )}
           </div>
         </Stack>

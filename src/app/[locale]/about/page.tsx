@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Container, Section, Stack } from "@/components/layout/index";
 import { Heading, Text, Tag, PortableText, Button } from "@/components/ui/index";
@@ -21,7 +22,7 @@ export default async function AboutPage({
       <Container as="main">
         <Section spacing="lg">
           <Heading level="h1">{t("bio_heading")}</Heading>
-          <Text variant="secondary">{t("coming_soon")}</Text>
+          <Text color="muted">{t("coming_soon")}</Text>
         </Section>
       </Container>
     );
@@ -33,23 +34,25 @@ export default async function AboutPage({
 
         <div className={styles.header}>
           {about.avatar && (
-            <img
+            <Image
               src={about.avatar}
               alt={about.heading}
+              width={120}
+              height={120}
               className={styles.avatar}
             />
           )}
           <div className={styles.headerText}>
             <Heading level="h1">{about.heading}</Heading>
             {about.role && (
-              <Text variant="secondary">{about.role}</Text>
+              <Text color="muted">{about.role}</Text>
             )}
             <Stack direction="row" gap="sm" wrap="wrap">
               {about.email && (
                 <Button
                   as="a"
                   href={`mailto:${about.email}`}
-                  variant="secondary"
+                  color="muted"
                   size="sm"
                   iconLeft={<Mail size={14} />}
                 >
@@ -62,7 +65,7 @@ export default async function AboutPage({
                   href={about.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="secondary"
+                  color="muted"
                   size="sm"
                   iconLeft={<Github size={14} />}
                 >
@@ -75,7 +78,7 @@ export default async function AboutPage({
                   href={about.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="secondary"
+                  color="muted"
                   size="sm"
                   iconLeft={<Linkedin size={14} />}
                 >

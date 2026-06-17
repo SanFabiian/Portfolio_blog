@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
   };
 
   const tags = docType ? (tagMap[docType] ?? ["all"]) : ["all"];
-  tags.forEach((tag) => revalidateTag(tag));
+  tags.forEach((tag) => revalidateTag(tag, {}));
 
   return NextResponse.json({ revalidated: true, tags });
 }

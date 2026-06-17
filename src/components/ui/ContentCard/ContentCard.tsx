@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -33,7 +34,7 @@ export function ContentCard({
 
           {image && (
             <div className={styles.cover}>
-              <img src={image} alt={imageAlt} className={styles.image} />
+              <Image src={image} alt={imageAlt} fill className={styles.image} />
             </div>
           )}
 

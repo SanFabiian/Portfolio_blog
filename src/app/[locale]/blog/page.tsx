@@ -22,15 +22,21 @@ export default async function BlogPage({
         <div className={styles.content}>
           <div className={styles.header}>
             <Heading level="h1">{t("heading")}</Heading>
-            <Text variant="secondary">{t("description")}</Text>
+            <Text color="muted">{t("description")}</Text>
           </div>
           <div>
-            {posts[0] && <PostRow post={posts[0]} featured />}
-            <div style={{ marginTop: posts[0] ? "2.4rem" : undefined }}>
-              {posts.slice(1).map((post) => (
-                <PostRow key={post.slug} post={post} />
-              ))}
-            </div>
+            {posts.length === 0 ? (
+              <Text color="muted">{t("empty")}</Text>
+            ) : (
+              <>
+                {posts[0] && <PostRow post={posts[0]} featured locale={locale} />}
+                <div style={{ marginTop: posts[0] ? "2.4rem" : undefined }}>
+                  {posts.slice(1).map((post) => (
+                    <PostRow key={post.slug} post={post} locale={locale} />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </Section>

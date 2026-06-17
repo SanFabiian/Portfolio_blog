@@ -24,13 +24,17 @@ export default async function ProjectsPage({
       <Section spacing="lg">
         <div className={styles.header}>
           <Heading level="h1">{t("heading")}</Heading>
-          <Text variant="secondary">{t("description")}</Text>
+          <Text color="muted">{t("description")}</Text>
         </div>
-        <Grid cols={1} colsMd={2} colsLg={3} gap="md">
-          {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </Grid>
+        {projects.length > 0 ? (
+          <Grid cols={1} colsMd={2} colsLg={3} gap="md">
+            {projects.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
+          </Grid>
+        ) : (
+          <Text color="muted">{t("empty")}</Text>
+        )}
 
         <div className={styles.labSection}>
           <p className={styles.labLabel}>{t("lab_label")}</p>

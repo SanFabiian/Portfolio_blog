@@ -32,7 +32,8 @@
       "lab_label": "Lab",
       "playground_badge": "Interno",
       "playground_title": "Playground de componentes",
-      "playground_desc": "Referencia visual del sistema de diseño completo — tokens, tipografía, componentes y layout."
+      "playground_desc": "Referencia visual del sistema de diseño completo — tokens, tipografía, componentes y layout.",
+      "empty": "Aún no hay proyectos. Vuelve pronto."
     },
     "blog": {
       "heading": "Blog",
@@ -40,7 +41,13 @@
       "back": "Todos los posts",
       "cover_soon": "Portada del post — próximamente",
       "content_soon": "El contenido completo estará disponible cuando se conecte Sanity CMS.",
-      "min_read": "min de lectura"
+      "min_read": "min de lectura",
+      "empty": "Aún no hay posts. Vuelve pronto."
+    },
+    "not_found": {
+      "title": "Página no encontrada",
+      "message": "La página que buscas no existe o fue movida.",
+      "back": "Volver al inicio"
     },
     "about": {
       "bio_heading": "Sobre mí",

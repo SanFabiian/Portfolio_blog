@@ -8,6 +8,7 @@ import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { Tag } from "@/components/ui/Tag";
 import { PortableText } from "@/components/ui/PortableText/PortableText";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { getPostBySlug, getPosts } from "@/services/sanity";
 import styles from "./page.module.scss";
@@ -76,7 +77,7 @@ export default async function BlogPostPage({
               </Stack>
             )}
             <Heading level="h1">{post.title}</Heading>
-            <Text variant="secondary">{post.excerpt}</Text>
+            <Text color="muted">{post.excerpt}</Text>
             <Stack direction="row" align="center" gap="md" wrap="wrap">
               {post.author && <Text variant="small">{post.author}</Text>}
               {formattedDate && <Text variant="small">{formattedDate}</Text>}
@@ -89,18 +90,18 @@ export default async function BlogPostPage({
           </div>
           {post.coverImage ? (
             <div className={styles.cover}>
-              <img src={post.coverImage} alt={post.title} className={styles.coverImage} />
+              <Image src={post.coverImage} alt={post.title} fill className={styles.coverImage} />
             </div>
           ) : (
             <div className={styles.coverPlaceholder}>
-              <Text variant="secondary">{t("cover_soon")}</Text>
+              <Text color="muted">{t("cover_soon")}</Text>
             </div>
           )}
           <div className={styles.content}>
             {post.content ? (
               <PortableText value={post.content} />
             ) : (
-              <Text variant="secondary">{t("content_soon")}</Text>
+              <Text color="muted">{t("content_soon")}</Text>
             )}
           </div>
         </Stack>

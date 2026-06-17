@@ -187,7 +187,7 @@ function ColorRamp({
 }) {
   return (
     <div style={{ marginBottom: "2.4rem" }}>
-      <Text variant="secondary" style={{ marginBottom: "1.2rem" }}>
+      <Text color="muted" style={{ marginBottom: "1.2rem" }}>
         <strong>{label}</strong> — {description}
       </Text>
       <div className={styles.swatchGrid}>
@@ -298,7 +298,7 @@ export default async function PlaygroundPage({
           <div className={styles.header}>
             <div className={styles.headerBadge}>{t("badge")}</div>
             <Heading level="h1">{t("heading")}</Heading>
-            <Text variant="secondary">{t("description")}</Text>
+            <Text color="muted">{t("description")}</Text>
           </div>
 
           {/* ── Overview ──────────────────────────────────────── */}
@@ -356,7 +356,7 @@ export default async function PlaygroundPage({
           <PlaygroundSection id="text" title="Text" description="Body / Secondary / Small">
             <Stack gap="sm">
               <Text>Default body — the quick brown fox jumps over the lazy dog.</Text>
-              <Text variant="secondary">Secondary — used for descriptions and subtitles.</Text>
+              <Text color="muted">Secondary — used for descriptions and subtitles.</Text>
               <Text variant="small">Small — captions, metadata, timestamps.</Text>
             </Stack>
           </PlaygroundSection>
@@ -365,9 +365,9 @@ export default async function PlaygroundPage({
           <PlaygroundSection id="badge" title="Badge" description="Semantic status indicators">
             <Stack direction="row" gap="sm" wrap="wrap">
               <Badge variant="success">Frontend</Badge>
-              <Badge variant="info">UX Design</Badge>
+              <Badge variant="default">UX Design</Badge>
               <Badge variant="warning">Fullstack</Badge>
-              <Badge variant="error">Deprecated</Badge>
+              <Badge variant="danger">Deprecated</Badge>
               <Badge>Default</Badge>
             </Stack>
           </PlaygroundSection>
@@ -448,7 +448,7 @@ export default async function PlaygroundPage({
                 href="#"
                 title="Without image"
                 description="The base slot-based card. Meta, title, description and footer are all optional slots."
-                meta={<><Badge variant="info">Slot</Badge><Tag>base</Tag></>}
+                meta={<><Badge variant="default">Slot</Badge><Tag>base</Tag></>}
                 footer={<Text variant="small">Footer slot — any content</Text>}
               />
               <ContentCard
@@ -473,10 +473,10 @@ export default async function PlaygroundPage({
 
           {/* ── PostRow ───────────────────────────────────────── */}
           <PlaygroundSection id="post-row" title="PostRow" description="Blog list — featured (image left) + rows without image">
-            <PostRow post={samplePosts[0]} featured />
+            <PostRow post={samplePosts[0]} featured locale={locale} />
             <div style={{ marginTop: "2.4rem" }}>
               {samplePosts.slice(1).map((post) => (
-                <PostRow key={post.slug} post={post} />
+                <PostRow key={post.slug} post={post} locale={locale} />
               ))}
             </div>
           </PlaygroundSection>
@@ -493,7 +493,7 @@ export default async function PlaygroundPage({
             <Stack gap="md">
               <Stack direction="row" gap="sm" align="center">
                 <Badge>row</Badge>
-                <Badge variant="info">gap sm</Badge>
+                <Badge variant="default">gap sm</Badge>
                 <Badge variant="success">align center</Badge>
               </Stack>
               <Stack direction="row" gap="lg" justify="between" align="center">

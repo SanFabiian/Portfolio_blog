@@ -1,6 +1,4 @@
-"use client";
-
-import { useLocale } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/Badge";
 import { Clock, ArrowRight } from "lucide-react";
@@ -11,11 +9,10 @@ import { Stack } from "@/components/layout/Stack/Stack";
 export interface PostRowProps {
   post: Post;
   featured?: boolean;
+  locale?: string;
 }
 
-export function PostRow({ post, featured = false }: PostRowProps) {
-  const locale = useLocale();
-
+export function PostRow({ post, featured = false, locale = "en" }: PostRowProps) {
   const formattedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString(
         locale === "es" ? "es-ES" : "en-US",
@@ -28,7 +25,7 @@ export function PostRow({ post, featured = false }: PostRowProps) {
       <Link href={`/blog/${post.slug}`} className={`${styles.wrapper} ${styles.featured}`}>
         {post.coverImage && (
           <div className={styles.featuredImg}>
-            <img src={post.coverImage} alt={post.title} />
+            <Image src={post.coverImage} alt={post.title} fill style={{ objectFit: "cover" }} />
           </div>
         )}
         <div className={styles.featuredBody}>

@@ -32,7 +32,8 @@
       "lab_label": "Lab",
       "playground_badge": "Internal",
       "playground_title": "Component Playground",
-      "playground_desc": "Visual reference for the full design system — tokens, typography, components and layout."
+      "playground_desc": "Visual reference for the full design system — tokens, typography, components and layout.",
+      "empty": "No projects yet. Check back soon."
     },
     "blog": {
       "heading": "Blog",
@@ -40,7 +41,13 @@
       "back": "All posts",
       "cover_soon": "Post cover — coming soon",
       "content_soon": "Full post content will be available once Sanity CMS is connected.",
-      "min_read": "min read"
+      "min_read": "min read",
+      "empty": "No posts yet. Check back soon."
+    },
+    "not_found": {
+      "title": "Page not found",
+      "message": "The page you're looking for doesn't exist or has been moved.",
+      "back": "Back to home"
     },
     "about": {
       "bio_heading": "About me",

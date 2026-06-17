@@ -5,3 +5,11 @@
   flex-direction: column;
   gap: $spacing-sm;
 }
+
+.avatar {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
