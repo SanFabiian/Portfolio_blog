@@ -5,7 +5,7 @@ export { ContentCard }  from "./ContentCard";
 export { Heading }      from "./Heading";
 export { Input }        from "./Input";
 export { Logo }         from "./Logo";
-export { PostCard }     from "./PostCard";
+export { PostRow }      from "./PostRow";
 export { ProjectCard }  from "./ProjectCard";
 export { Spinner }      from "./Spinner";
 export { Tag }          from "./Tag";
@@ -16,5 +16,5 @@ export { CodeAnimation } from "./CodeAnimation";
 
 export type { CardProps }         from "./Card";
 export type { ContentCardProps }  from "./ContentCard";
-export type { PostCardProps }     from "./PostCard";
+export type { PostRowProps }      from "./PostRow";
 export type { ProjectCardProps }  from "./ProjectCard";

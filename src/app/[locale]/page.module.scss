@@ -3,64 +3,56 @@
 
 @use "../../styles/index" as *;
 
-.main {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-.curtain {
-  height: 100vh;
-  scroll-snap-align: start;
-  padding: 64px 0;
-  scroll-snap-stop: always;
-}
-
-
+// ── Hero ─────────────────────────────────────────────
 .hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $spacing-xs;
+  padding: 9.6rem 0 7.2rem;
+  max-width: 86rem;
+}
+
+.availableBadge {
+  display: inline-flex;
   align-items: center;
-
-  @include lg {
-    grid-template-columns: 1fr 1fr;
-    gap: $spacing-xl;
-  }
-}
-
-.heroText {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-lg;
-}
-
-.heroEyebrow {
+  gap: $space-2;
+  margin-bottom: $space-6;
+  padding: 0.6rem 1.4rem;
+  border-radius: $border-radius-pill;
+  background: var(--color-success-subtle);
+  border: 1px solid color-mix(in srgb, var(--color-success) 30%, transparent);
   font-size: $font-size-small;
   font-weight: $font-weight-medium;
-  color: var(--color-text-secondary);   // ← era var(--)
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin: 0;
+  color: var(--color-success-text);
+}
+
+.availableDot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--color-success);
+  flex-shrink: 0;
 }
 
 .heroHeading {
-  font-size: clamp(3.2rem, 5vw, 5.6rem); // ← usa rem, elimina !important
-  line-height: 1.1;
+  font-size: clamp(4rem, 7vw, 7.2rem);
+  line-height: 1.05;
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.02em;
   color: var(--color-text-primary);
+  margin-bottom: $space-6;
+}
+
+.heroAccent {
+  color: var(--color-action-primary);
 }
 
 .heroDescription {
   font-size: $font-size-body;
   line-height: $line-height-body;
   color: var(--color-text-secondary);
-  max-width: 480px;
+  max-width: 62rem;
+  margin-bottom: $space-10;
 }
 
-.heroCode {
-  width: 100%;
-}
-
+// ── Section headers ───────────────────────────────────
 .sectionHeader {
   display: flex;
   align-items: flex-end;
@@ -70,24 +62,31 @@
   margin-bottom: $spacing-xl;
 }
 
+.eyebrow {
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  color: var(--color-action-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 $space-2 0;
+}
+
+// ── Blog feed ─────────────────────────────────────────
+.blogFeed {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+// ── CTA ───────────────────────────────────────────────
 .cta {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: $spacing-lg;
-  padding: $spacing-xs $spacing-lg;
+  padding: $spacing-xl3 $spacing-lg;
   border-radius: $border-radius-large;
   border: 1px solid var(--color-border-default);
   background: var(--color-bg-subtle);
-}
-
-
-// ── Colores por sección ──────────────────────────────
-.curtain:nth-child(1) {
-  background: linear-gradient(
-    135deg,
-    var(--color-action-primary) 50%,
-    var(--color-accent) 100%
-  );
 }

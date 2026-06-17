@@ -6,6 +6,8 @@ type SectionSpacing = "sm" | "md" | "lg" | "xl";
 export interface SectionProps {
   children: React.ReactNode;
   spacing?: SectionSpacing;
+  gap?: SectionSpacing;
+  background?: string;
   className?: string;
   id?: string;
   // Allows rendering as <section> (default) or <div> when nesting
@@ -15,6 +17,8 @@ export interface SectionProps {
 export function Section({
   children,
   spacing = "lg",
+  gap,
+  background,
   className,
   id,
   as: Component = "section",
@@ -22,7 +26,13 @@ export function Section({
   return (
     <Component
       id={id}
-      className={clsx(styles.section, styles[`spacing-${spacing}`], className)}
+      className={clsx(
+        styles.section,
+        styles[`spacing-${spacing}`],
+        gap && styles[`gap-${gap}`],
+        className
+      )}
+      style={background ? { background } : undefined}
     >
       {children}
     </Component>

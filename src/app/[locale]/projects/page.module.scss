@@ -6,3 +6,26 @@
   gap: $spacing-sm;
   margin-bottom: $spacing-xs;
 }
+
+// ── Lab section ───────────────────────────────────────
+.labSection {
+  margin-top: $spacing-xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.labLabel {
+  font-size: $font-size-caption;
+  font-weight: $font-weight-semiBold;
+  color: var(--color-text-disabled);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.playgroundCard {
+  border-style: dashed;
+  background: var(--color-bg-subtle);
+}

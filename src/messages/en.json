@@ -6,7 +6,9 @@
       "about": "About"
     },
     "home": {
+      "available": "Available for new work",
       "eyebrow": "UI/UX Designer & Frontend Developer",
+      "cta_about": "About me",
       "heading": "Crafting elite digital experiences with precision.",
       "description": "I design and build products where aesthetics and engineering meet — from design systems to full-stack applications.",
       "cta_projects": "View Projects",
@@ -26,7 +28,11 @@
       "description": "A selection of work across UX design and frontend development.",
       "back": "All projects",
       "cover_soon": "Project cover — coming soon",
-      "content_soon": "Full project content will be available once Sanity CMS is connected."
+      "content_soon": "Full project content will be available once Sanity CMS is connected.",
+      "lab_label": "Lab",
+      "playground_badge": "Internal",
+      "playground_title": "Component Playground",
+      "playground_desc": "Visual reference for the full design system — tokens, typography, components and layout."
     },
     "blog": {
       "heading": "Blog",
@@ -38,6 +44,15 @@
     },
     "about": {
       "bio_heading": "About me",
-      "skills_heading": "Skills & Technologies"
+      "skills_heading": "Skills & Technologies",
+      "coming_soon": "This section is coming soon."
+    },
+    "footer": {
+      "copyright": "All rights reserved."
+    },
+    "playground": {
+      "badge": "Internal",
+      "heading": "Component Playground",
+      "description": "Visual reference for all UI components. Not linked from the public site."
     }
   }

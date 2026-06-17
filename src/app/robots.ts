@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/playground"], // keep playground private from crawlers
+      disallow: ["/playground", "/studio", "/api"],
     },
     sitemap: `${BASE_URL}/sitemap.xml`,
   };

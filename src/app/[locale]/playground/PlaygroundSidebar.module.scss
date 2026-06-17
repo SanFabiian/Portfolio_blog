@@ -1,0 +1,97 @@
+@use "../../../styles/index" as *;
+
+.sidebar {
+  position: sticky;
+  top: calc(6.8rem + #{$space-8});
+  height: calc(100vh - 6.8rem - #{$space-8});
+  overflow-y: auto;
+  padding-right: $space-4;
+
+  // Scrollbar sutil
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-default) transparent;
+}
+
+.sidebarTitle {
+  font-size: $font-size-caption;
+  font-weight: $font-weight-semiBold;
+  color: var(--color-text-disabled);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0 $space-3 $space-4 $space-3;
+  margin: 0;
+}
+
+.group {
+  margin-bottom: $space-1;
+}
+
+.groupToggle {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  width: 100%;
+  padding: $space-2 $space-3;
+  border-radius: $border-radius-small;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semiBold;
+  color: var(--color-text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  &:hover {
+    background: var(--color-bg-subtle);
+  }
+}
+
+.chevron {
+  color: var(--color-text-disabled);
+  transition: transform 200ms ease;
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(0deg);
+}
+
+.chevron:not(.chevronOpen) {
+  transform: rotate(-90deg);
+}
+
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 $space-2 0;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  padding: $space-2 $space-3 $space-2 calc(#{$space-3} + 1.4rem + #{$space-2});
+  border-radius: $border-radius-small;
+  font-size: $font-size-small;
+  font-weight: $font-weight-regular;
+  color: var(--color-text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color 140ms ease, background 140ms ease;
+
+  &:hover {
+    color: var(--color-text-primary);
+    background: var(--color-bg-subtle);
+  }
+}
+
+.itemActive {
+  color: var(--color-action-primary);
+  font-weight: $font-weight-medium;
+
+  &:hover {
+    color: var(--color-action-primary);
+    background: var(--color-action-primary-subtle);
+  }
+}

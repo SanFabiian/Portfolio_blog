@@ -16,6 +16,7 @@ export function ToggleLang() {
 
     function toggleLang(nextLocale: "en" | "es") {
     if (nextLocale === locale) return;
+    sessionStorage.setItem("scroll-restore", String(window.scrollY));
     router.replace(pathname, { locale: nextLocale });
   }
     return (

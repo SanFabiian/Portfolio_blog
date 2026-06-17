@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
 import { Container, Section, Stack } from "@/components/layout/index";
 import { Heading, Text, Tag, PortableText, Button } from "@/components/ui/index";
 import { Github, Linkedin, Mail } from "lucide-react";
@@ -17,7 +16,16 @@ export default async function AboutPage({
     getAbout(locale),
   ]);
 
-  if (!about) notFound();
+  if (!about) {
+    return (
+      <Container as="main">
+        <Section spacing="lg">
+          <Heading level="h1">{t("bio_heading")}</Heading>
+          <Text variant="secondary">{t("coming_soon")}</Text>
+        </Section>
+      </Container>
+    );
+  }
 
   return (
     <Container as="main">

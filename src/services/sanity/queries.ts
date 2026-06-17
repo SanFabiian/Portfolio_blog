@@ -181,6 +181,25 @@ export const latestPostsQuery = `
   }
 `;
 
+export const siteSettingsQuery = `
+  *[_type == "siteSettings"][0] {
+    "available": select($locale == "es" => available_es, available_en),
+    "heading": select($locale == "es" => heading_es, heading_en),
+    "description": select($locale == "es" => description_es, description_en),
+    "cta_projects": select($locale == "es" => cta_projects_es, cta_projects_en),
+    "cta_about": select($locale == "es" => cta_about_es, cta_about_en),
+    "selected_work": select($locale == "es" => selected_work_es, selected_work_en),
+    "selected_work_desc": select($locale == "es" => selected_work_desc_es, selected_work_desc_en),
+    "all_projects": select($locale == "es" => all_projects_es, all_projects_en),
+    "from_blog": select($locale == "es" => from_blog_es, from_blog_en),
+    "from_blog_desc": select($locale == "es" => from_blog_desc_es, from_blog_desc_en),
+    "all_posts": select($locale == "es" => all_posts_es, all_posts_en),
+    "cta_heading": select($locale == "es" => cta_heading_es, cta_heading_en),
+    "cta_desc": select($locale == "es" => cta_desc_es, cta_desc_en),
+    "cta_button": select($locale == "es" => cta_button_es, cta_button_en)
+  }
+`;
+
 export const aboutQuery = `
   *[_type == "about"][0] {
     "heading": select($locale == "es" => heading_es, heading_en),

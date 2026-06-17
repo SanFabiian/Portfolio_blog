@@ -1,9 +1,9 @@
 @use "../../../styles/index" as *;
 
 .footer {
+  background-color: var(--color-action-primary);
   margin-top: auto;
-  padding: $spacing-xl 0;
-  border-top: 1px solid var(--color-border-default);
+  padding: $spacing-xl;
 }
 
 .content {
@@ -20,7 +20,7 @@
 
 .copyright {
   font-size: $font-size-small;
-  color:var(--color-text-secondary);
+  color:var(--color-text-inverse);
   margin: 0;
 }
 
@@ -31,12 +31,12 @@
 
   a {
     font-size: $font-size-small;
-    color:var(--color-text-secondary);
+    color:var(--color-text-inverse);
     text-decoration: none;
     transition: color 0.15s ease;
 
     &:hover {
-      color: var(--color-action-primary);
+      opacity: 0.75;
     }
   }
 }

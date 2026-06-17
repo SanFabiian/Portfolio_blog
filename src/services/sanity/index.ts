@@ -7,6 +7,7 @@ import {
   featuredProjectsQuery,
   latestPostsQuery,
   aboutQuery,
+  siteSettingsQuery,
 } from "./queries";
 import type { Project } from "@/types/project";
 import type { Post } from "@/types/post";
@@ -50,4 +51,27 @@ export interface About {
 
 export async function getAbout(locale: string): Promise<About | null> {
   return client.fetch(aboutQuery, { locale });
+}
+
+export interface SiteSettings {
+  available?: string | null;
+  heading?: string | null;
+  description?: string | null;
+  cta_projects?: string | null;
+  cta_about?: string | null;
+  selected_work?: string | null;
+  selected_work_desc?: string | null;
+  all_projects?: string | null;
+  from_blog?: string | null;
+  from_blog_desc?: string | null;
+  all_posts?: string | null;
+  cta_heading?: string | null;
+  cta_desc?: string | null;
+  cta_button?: string | null;
+}
+
+export async function getSiteSettings(locale: string): Promise<SiteSettings | null> {
+  return client.fetch(siteSettingsQuery, { locale }, {
+    next: { tags: ["site-settings"] },
+  });
 }

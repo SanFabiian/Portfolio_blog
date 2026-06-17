@@ -6,7 +6,9 @@
       "about": "Acerca de"
     },
     "home": {
+      "available": "Disponible para nuevos proyectos",
       "eyebrow": "Diseñador UI/UX & Desarrollador Frontend",
+      "cta_about": "Sobre mí",
       "heading": "Creando experiencias digitales de élite con precisión.",
       "description": "Diseño y construyo productos donde la estética y la ingeniería se encuentran — desde sistemas de diseño hasta aplicaciones full-stack.",
       "cta_projects": "Ver Proyectos",
@@ -26,7 +28,11 @@
       "description": "Una selección de trabajo en diseño UX y desarrollo frontend.",
       "back": "Todos los proyectos",
       "cover_soon": "Portada del proyecto — próximamente",
-      "content_soon": "El contenido completo estará disponible cuando se conecte Sanity CMS."
+      "content_soon": "El contenido completo estará disponible cuando se conecte Sanity CMS.",
+      "lab_label": "Lab",
+      "playground_badge": "Interno",
+      "playground_title": "Playground de componentes",
+      "playground_desc": "Referencia visual del sistema de diseño completo — tokens, tipografía, componentes y layout."
     },
     "blog": {
       "heading": "Blog",
@@ -38,6 +44,15 @@
     },
     "about": {
       "bio_heading": "Sobre mí",
-      "skills_heading": "Habilidades y Tecnologías"
+      "skills_heading": "Habilidades y Tecnologías",
+      "coming_soon": "Esta sección estará disponible próximamente."
+    },
+    "footer": {
+      "copyright": "Todos los derechos reservados."
+    },
+    "playground": {
+      "badge": "Interno",
+      "heading": "Playground de Componentes",
+      "description": "Referencia visual de todos los componentes UI. No está enlazado desde el sitio público."
     }
   }
