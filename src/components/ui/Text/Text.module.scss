@@ -5,6 +5,10 @@
   margin: 0;
 }
 
+/* Font family */
+.font-base  { font-family: $font-family-base; }
+.font-prose { font-family: $font-family-prose; }
+
 /* Variants – typography tokens */
 .body {
   font-size: $font-size-body;

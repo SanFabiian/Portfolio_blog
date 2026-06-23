@@ -11,7 +11,8 @@
 //   - Never import directly in components. Access through styles/index.scss.
 // =============================================================================
 
-$font-family-base: "Inter", system-ui, -apple-system, sans-serif;
+$font-family-base:  "Inter", system-ui, -apple-system, sans-serif;
+$font-family-prose: var(--font-merriweather), Georgia, serif;
 
 // Size scale
 $font-size-h1:      4.8rem;

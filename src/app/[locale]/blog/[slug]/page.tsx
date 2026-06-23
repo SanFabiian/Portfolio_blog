@@ -77,7 +77,7 @@ export default async function BlogPostPage({
               </Stack>
             )}
             <Heading level="h1">{post.title}</Heading>
-            <Text color="muted">{post.excerpt}</Text>
+            <Text color="muted" font="prose">{post.excerpt}</Text>
             <Stack direction="row" align="center" gap="md" wrap="wrap">
               {post.author && <Text variant="small">{post.author}</Text>}
               {formattedDate && <Text variant="small">{formattedDate}</Text>}

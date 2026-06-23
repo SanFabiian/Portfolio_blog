@@ -9,19 +9,88 @@
 
 // ── Texto ────────────────────────────────────────────
 .paragraph {
+  font-family: $font-family-prose;
+  font-size: $font-size-body;
   line-height: 1.75;
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
-.h1 { font-size: 2rem; font-weight: 700; margin-bottom: $spacing-sm; }
-.h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: $spacing-sm; }
-.h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: $spacing-sm; }
+// ── Headings ─────────────────────────────────────────
+// Escala: h1 3.2 → h2 2.4 → h3 2.0 → h4 1.8 → h5 1.6 → h6 1.4rem
+// Todos usan Merriweather y --color-text-primary
 
+.h1 {
+  font-family: $font-family-prose;
+  font-size: $font-size-h2;       // 3.2rem
+  font-weight: $font-weight-bold;
+  line-height: $line-height-h2;
+  margin-top: $spacing-xl2;
+  margin-bottom: $spacing-md;
+  color: var(--color-text-primary);
+}
+
+.h2 {
+  font-family: $font-family-prose;
+  font-size: $font-size-h3;       // 2.4rem
+  font-weight: $font-weight-bold;
+  line-height: $line-height-h3;
+  margin-top: $spacing-xl;
+  margin-bottom: $spacing-sm;
+  color: var(--color-text-primary);
+}
+
+.h3 {
+  font-family: $font-family-prose;
+  font-size: 2rem;
+  font-weight: $font-weight-semiBold;
+  line-height: $line-height-h3;
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-sm;
+  color: var(--color-text-primary);
+}
+
+.h4 {
+  font-family: $font-family-prose;
+  font-size: 1.8rem;
+  font-weight: $font-weight-semiBold;
+  line-height: $line-height-body;
+  margin-top: $spacing-md;
+  margin-bottom: $spacing-sm;
+  color: var(--color-text-primary);
+}
+
+.h5 {
+  font-family: $font-family-prose;
+  font-size: $font-size-body;     // 1.6rem
+  font-weight: $font-weight-medium;
+  line-height: $line-height-body;
+  margin-top: $spacing-md;
+  margin-bottom: $spacing-xs;
+  color: var(--color-text-primary);
+}
+
+.h6 {
+  font-family: $font-family-prose;
+  font-size: $font-size-small;    // 1.4rem
+  font-weight: $font-weight-medium;
+  line-height: $line-height-small;
+  margin-top: $spacing-sm;
+  margin-bottom: $spacing-xs;
+  color: var(--color-text-primary);
+}
+
+// ── Blockquote ───────────────────────────────────────
 .blockquote {
-  border-left: 3px solid var(--color-primary);
-  padding-left: $spacing-md;
-  color: var(--color-text-secondary);
+  font-family: $font-family-prose;
+  font-size: 1.6rem;
   font-style: italic;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  border-left: 3px solid var(--color-action-primary);
+  padding: $spacing-sm $spacing-lg;
+  margin: $spacing-sm 0;
+  background: var(--color-bg-subtle);
+  border-radius: 0 $border-radius-small $border-radius-small 0;
 }
 
 .inlineCode {
@@ -49,6 +118,7 @@
 }
 
 .li {
+  font-family: $font-family-prose;
   line-height: 1.75;
 }
 

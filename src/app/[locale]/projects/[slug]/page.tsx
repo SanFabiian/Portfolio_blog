@@ -81,7 +81,7 @@ export default async function ProjectDetailPage({
             ))}
             </Stack>
             <Heading level="h1">{project.title}</Heading>
-            <Text color="muted">{project.description}</Text>
+            <Text color="muted" font="prose">{project.description}</Text>
             <Stack direction="row" align="center" gap="lg" wrap="wrap">
               {formattedDate && <Text variant="small">{formattedDate}</Text>}
               <Stack direction="row" gap="sm">

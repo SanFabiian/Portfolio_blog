@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
-import { Card } from "@/components/ui/Card";
+import { Card, Text } from "@/components/ui";
 import styles from "./ContentCard.module.scss";
 
 export interface ContentCardProps {
@@ -41,7 +41,9 @@ export function ContentCard({
           <div className={styles.body}>
             {meta && <div className={styles.meta}>{meta}</div>}
             <h3 className={styles.title}>{title}</h3>
-            <p className={styles.description}>{description}</p>
+            <Text>
+              {description}
+            </Text>
           </div>
 
         </Card>

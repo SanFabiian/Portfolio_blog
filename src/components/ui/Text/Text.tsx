@@ -4,6 +4,7 @@ import styles from "./Text.module.scss";
 export type TextVariant = "body" | "small" | "caption";
 export type TextWeight = "regular" | "medium" | "bold";
 export type TextColor = "default" | "muted" | "primary" | "inherit";
+export type TextFont = "base" | "prose";
 
 export type TextAs = "p" | "span" | "div";
 
@@ -11,6 +12,7 @@ export interface TextProps {
   variant?: TextVariant;
   weight?: TextWeight;
   color?: TextColor;
+  font?: TextFont;
   as?: TextAs;
   className?: string;
   children: React.ReactNode;
@@ -26,6 +28,7 @@ export function Text({
   variant = "body",
   weight = "regular",
   color = "default",
+  font = "base",
   as = "p",
   className,
   children,
@@ -38,6 +41,7 @@ export function Text({
     styles[variant],
     styles[`weight-${weight}`],
     styles[`color-${color}`],
+    styles[`font-${font}`],
     className
   );
 
