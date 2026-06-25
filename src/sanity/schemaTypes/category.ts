@@ -24,6 +24,22 @@ export const categorySchema = defineType({
       options: { source: "label_en" },
       validation: (r) => r.required(),
     }),
+    defineField({
+      name: "variant",
+      title: "Color",
+      type: "string",
+      initialValue: "default",
+      options: {
+        list: [
+          { title: "Default (grey)",   value: "default" },
+          { title: "Info (blue)",      value: "info"    },
+          { title: "Success (green)",  value: "success" },
+          { title: "Warning (yellow)", value: "warning" },
+          { title: "Danger (red)",     value: "danger"  },
+        ],
+        layout: "radio",
+      },
+    }),
   ],
   preview: {
     select: { title: "label_en", subtitle: "label_es" },

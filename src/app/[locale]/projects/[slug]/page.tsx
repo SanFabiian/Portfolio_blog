@@ -61,7 +61,7 @@ export default async function ProjectDetailPage({
 
   return (
     <Container as="main">
-      <Section spacing="lg">
+      <Section spacing="lg" type="reading">
         <Stack align="center">
           <div className={styles.back}>
             <Link href="/projects" className={styles.backLink}>
@@ -72,7 +72,7 @@ export default async function ProjectDetailPage({
           <div className={styles.header}>
             <Stack direction="row" align="center" gap="sm" wrap="wrap">
             {project.category && (
-              <Badge variant="default">
+              <Badge variant={project.category.variant ?? "default"}>
                 {project.category.label}
               </Badge>
             )}

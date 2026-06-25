@@ -1,11 +1,10 @@
 import { getTranslations } from "next-intl/server";
-import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { Heading } from "@/components/ui/Heading";
-import { Text } from "@/components/ui/Text";
-import { PostRow } from "@/components/ui/PostRow";
+import { Container, Section, Stack } from "@/components/layout/index";
+import { Heading, Text, PostRow } from "@/components/ui/index";
 import { getPosts } from "@/services/sanity";
 import styles from "./page.module.scss";
+
+
 
 export default async function BlogPage({
   params,
@@ -19,7 +18,7 @@ export default async function BlogPage({
   return (
     <Container as="main">
       <Section spacing="lg">
-        <div className={styles.content}>
+        <Stack>
           <div className={styles.header}>
             <Heading level="h1">{t("heading")}</Heading>
             <Text color="muted">{t("description")}</Text>
@@ -38,7 +37,7 @@ export default async function BlogPage({
               </>
             )}
           </div>
-        </div>
+        </Stack>
       </Section>
     </Container>
   );

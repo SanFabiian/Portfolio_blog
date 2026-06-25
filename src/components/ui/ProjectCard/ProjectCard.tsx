@@ -15,7 +15,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
   const meta = (
     <>
       {project.category && (
-        <Badge variant="default">
+        <Badge variant={project.category.variant ?? "default"}>
           {project.category.label}
         </Badge>
       )}

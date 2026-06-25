@@ -68,6 +68,15 @@ export interface SiteSettings {
   cta_heading?: string | null;
   cta_desc?: string | null;
   cta_button?: string | null;
+  cta_projects_link?: string | null;
+  cta_about_link?: string | null;
+  show_badge?: boolean | null;
+  show_description?: boolean | null;
+  show_cta_projects?: boolean | null;
+  show_cta_about?: boolean | null;
+  show_work_section?: boolean | null;
+  show_blog_section?: boolean | null;
+  show_cta_section?: boolean | null;
 }
 
 export async function getSiteSettings(locale: string): Promise<SiteSettings | null> {

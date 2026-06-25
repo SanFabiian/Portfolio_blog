@@ -3,9 +3,10 @@ export const projectsQuery = `
     "slug": slug.current,
     "title": select($locale == "es" => title_es, title_en),
     "description": select($locale == "es" => description_es, description_en),
-    "category": category->{ 
-      "label": select($locale == "es" => label_es, label_en), 
-      "slug": slug.current 
+    "category": category->{
+      "label": select($locale == "es" => label_es, label_en),
+      "slug": slug.current,
+      variant
     },
     "tags": tags[defined(@->_id)]->{
       "label": select($locale == "es" => label_es, label_en),
@@ -52,9 +53,10 @@ export const projectBySlugQuery = `
         text
       }
     },
-    "category": category->{ 
-      "label": select($locale == "es" => label_es, label_en), 
-      "slug": slug.current 
+    "category": category->{
+      "label": select($locale == "es" => label_es, label_en),
+      "slug": slug.current,
+      variant
     },
     "tags": tags[defined(@->_id)]->{
       "label": select($locale == "es" => label_es, label_en),
@@ -74,9 +76,10 @@ export const postsQuery = `
     "slug": slug.current,
     "title": select($locale == "es" => title_es, title_en),
     "excerpt": select($locale == "es" => excerpt_es, excerpt_en),
-    "category": category->{ 
-      "label": select($locale == "es" => label_es, label_en), 
-      "slug": slug.current 
+    "category": category->{
+      "label": select($locale == "es" => label_es, label_en),
+      "slug": slug.current,
+      variant
     },
     "tags": tags[defined(@->_id)]->{
       "label": select($locale == "es" => label_es, label_en),
@@ -122,9 +125,10 @@ export const postBySlugQuery = `
         text
       }
     },
-    "category": category->{ 
-      "label": select($locale == "es" => label_es, label_en), 
-      "slug": slug.current 
+    "category": category->{
+      "label": select($locale == "es" => label_es, label_en),
+      "slug": slug.current,
+      variant
     },
     "tags": tags[defined(@->_id)]->{
       "label": select($locale == "es" => label_es, label_en),
@@ -143,9 +147,10 @@ export const featuredProjectsQuery = `
     "slug": slug.current,
     "title": select($locale == "es" => title_es, title_en),
     "description": select($locale == "es" => description_es, description_en),
-    "category": category->{ 
-      "label": select($locale == "es" => label_es, label_en), 
-      "slug": slug.current 
+    "category": category->{
+      "label": select($locale == "es" => label_es, label_en),
+      "slug": slug.current,
+      variant
     },
     "tags": tags[defined(@->_id)]->{
       "label": select($locale == "es" => label_es, label_en),
@@ -165,9 +170,10 @@ export const latestPostsQuery = `
     "slug": slug.current,
     "title": select($locale == "es" => title_es, title_en),
     "excerpt": select($locale == "es" => excerpt_es, excerpt_en),
-    "category": category->{ 
-      "label": select($locale == "es" => label_es, label_en), 
-      "slug": slug.current 
+    "category": category->{
+      "label": select($locale == "es" => label_es, label_en),
+      "slug": slug.current,
+      variant
     },
     "tags": tags[defined(@->_id)]->{
       "label": select($locale == "es" => label_es, label_en),
@@ -196,7 +202,16 @@ export const siteSettingsQuery = `
     "all_posts": select($locale == "es" => all_posts_es, all_posts_en),
     "cta_heading": select($locale == "es" => cta_heading_es, cta_heading_en),
     "cta_desc": select($locale == "es" => cta_desc_es, cta_desc_en),
-    "cta_button": select($locale == "es" => cta_button_es, cta_button_en)
+    "cta_button": select($locale == "es" => cta_button_es, cta_button_en),
+    cta_projects_link,
+    cta_about_link,
+    show_badge,
+    show_description,
+    show_cta_projects,
+    show_cta_about,
+    show_work_section,
+    show_blog_section,
+    show_cta_section
   }
 `;
 

@@ -30,9 +30,8 @@ export default async function AboutPage({
 
   return (
     <Container as="main">
-      <Section spacing="lg">
-
-        <div className={styles.header}>
+      <Section spacing="lg" gap="md" type="reading">
+        <Stack direction="row" gap="md" wrap="wrap" align="center">
           {about.avatar && (
             <Image
               src={about.avatar}
@@ -42,8 +41,8 @@ export default async function AboutPage({
               className={styles.avatar}
             />
           )}
-          <div className={styles.headerText}>
-            <Heading level="h1">{about.heading}</Heading>
+          <Stack wrap="wrap" gap="xs">
+            <Heading level="h1">{t("bio_heading")}</Heading>
             {about.role && (
               <Text color="muted">{about.role}</Text>
             )}
@@ -86,12 +85,12 @@ export default async function AboutPage({
                 </Button>
               )}
             </Stack>
-          </div>
-        </div>
+          </Stack>
+        </Stack>
 
         {about.bio && (
           <div className={styles.bio}>
-            <Heading level="h2">{t("bio_heading")}</Heading>
+            <Heading level="h2">{about.heading}</Heading>
             <PortableText value={about.bio} />
           </div>
         )}

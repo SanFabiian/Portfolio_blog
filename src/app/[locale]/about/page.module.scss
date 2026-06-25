@@ -1,11 +1,5 @@
 @use "../../../styles/index" as *;
 
-.header {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-sm;
-}
-
 .avatar {
   width: 12rem;
   height: 12rem;

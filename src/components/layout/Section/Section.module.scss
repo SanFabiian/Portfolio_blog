@@ -7,14 +7,18 @@
 }
 
 // Vertical padding scale
+.spacing-none { padding-block: 0;  }  // none
 .spacing-sm { padding-block: $space-8;  }  // 32px
 .spacing-md { padding-block: $space-10; }  // 40px
 .spacing-lg { padding-block: $space-12; }  // 48px
 .spacing-xl { padding-block: $space-16; }  // 80px
 
 // Gap scale
+.gap-inherit { gap: inherit;  }  // inherit
 .gap-sm { gap: $space-8;  }
 .gap-md { gap: $space-10; }
 .gap-lg { gap: $space-12; }
 .gap-xl { gap: $space-16; }
 
+.type-full { width: 100%; }
+.type-reading { max-width: 800px; margin: 0 auto; }

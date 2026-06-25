@@ -4,10 +4,16 @@ export const postSchema = defineType({
   name: "post",
   title: "Post",
   type: "document",
+  groups: [
+    { name: "en", title: "English", default: true },
+    { name: "es", title: "Español" },
+    { name: "settings", title: "Settings" },
+  ],
   fields: [
     // ── Slug ─────────────────────────────────────────
     defineField({
       name: "slug",
+      group: "settings",
       title: "Slug",
       type: "slug",
       options: { source: "title_en" },
@@ -17,31 +23,36 @@ export const postSchema = defineType({
     // ── Campos traducibles ───────────────────────────
     defineField({
       name: "title_en",
-      title: "Title (English)",
+      group: "en",
+      title: "Title",
       type: "string",
       validation: (r) => r.required(),
     }),
     defineField({
       name: "title_es",
-      title: "Title (Spanish)",
+      group: "es",
+      title: "Título",
       type: "string",
       validation: (r) => r.required(),
     }),
     defineField({
       name: "excerpt_en",
-      title: "Excerpt (English)",
+      group: "en",
+      title: "Excerpt",
       type: "text",
       validation: (r) => r.required(),
     }),
     defineField({
       name: "excerpt_es",
-      title: "Excerpt (Spanish)",
+      group: "es",
+      title: "Resumen",
       type: "text",
       validation: (r) => r.required(),
     }),
     defineField({
       name: "content_en",
-      title: "Content (English)",
+      group: "en",
+      title: "Content",
       type: "array",
       of: [
         { type: "block" },
@@ -138,7 +149,8 @@ export const postSchema = defineType({
     }),
     defineField({
       name: "content_es",
-      title: "Content (Spanish)",
+      group: "es",
+      title: "Contenido",
       type: "array",
       of: [
         { type: "block" },
@@ -237,12 +249,14 @@ export const postSchema = defineType({
     // ── Taxonomías (referencias globales) ────────────
     defineField({
       name: "category",
+      group: "settings",
       title: "Category",
       type: "reference",
       to: [{ type: "category" }],
     }),
     defineField({
       name: "tags",
+      group: "settings",
       title: "Tags",
       type: "array",
       of: [{ type: "reference", to: [{ type: "tag" }] }],
@@ -251,27 +265,32 @@ export const postSchema = defineType({
     // ── Campos globales ──────────────────────────────
     defineField({
       name: "coverImage",
+      group: "settings",
       title: "Cover Image",
       type: "image",
       options: { hotspot: true },
     }),
     defineField({
       name: "readingTime",
+      group: "settings",
       title: "Reading Time (min)",
       type: "number",
     }),
     defineField({
       name: "author",
+      group: "settings",
       title: "Author",
       type: "string",
     }),
     defineField({
       name: "publishedAt",
+      group: "settings",
       title: "Published At",
       type: "datetime",
     }),
     defineField({
       name: "updatedAt",
+      group: "settings",
       title: "Updated At",
       type: "datetime",
     }),

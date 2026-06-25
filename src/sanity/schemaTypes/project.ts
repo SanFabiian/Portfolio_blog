@@ -4,10 +4,16 @@ export const projectSchema = defineType({
   name: "project",
   title: "Project",
   type: "document",
+  groups: [
+    { name: "en", title: "English", default: true },
+    { name: "es", title: "Español" },
+    { name: "settings", title: "Settings" },
+  ],
   fields: [
     // ── Slug ─────────────────────────────────────────
     defineField({
       name: "slug",
+      group: "settings",
       title: "Slug",
       type: "slug",
       options: { source: "title_en" },
@@ -17,31 +23,36 @@ export const projectSchema = defineType({
     // ── Campos traducibles ───────────────────────────
     defineField({
       name: "title_en",
-      title: "Title (English)",
+      group: "en",
+      title: "Title",
       type: "string",
       validation: (r) => r.required(),
     }),
     defineField({
       name: "title_es",
-      title: "Title (Spanish)",
+      group: "es",
+      title: "Título",
       type: "string",
       validation: (r) => r.required(),
     }),
     defineField({
       name: "description_en",
-      title: "Description (English)",
+      group: "en",
+      title: "Description",
       type: "text",
       validation: (r) => r.required(),
     }),
     defineField({
       name: "description_es",
-      title: "Description (Spanish)",
+      group: "es",
+      title: "Descripción",
       type: "text",
       validation: (r) => r.required(),
     }),
     defineField({
       name: "content_en",
-      title: "Content (English)",
+      group: "en",
+      title: "Content",
       type: "array",
       of: [
         { type: "block" },
@@ -138,7 +149,8 @@ export const projectSchema = defineType({
     }),
     defineField({
       name: "content_es",
-      title: "Content (Spanish)",
+      group: "es",
+      title: "Contenido",
       type: "array",
       of: [
         { type: "block" },
@@ -236,6 +248,7 @@ export const projectSchema = defineType({
     // ── Taxonomías (referencias globales) ────────────
     defineField({
       name: "category",
+      group: "settings",
       title: "Category",
       type: "reference",
       to: [{ type: "category" }],
@@ -243,6 +256,7 @@ export const projectSchema = defineType({
     }),
     defineField({
       name: "tags",
+      group: "settings",
       title: "Tags",
       type: "array",
       of: [{ type: "reference", to: [{ type: "tag" }] }],
@@ -251,33 +265,39 @@ export const projectSchema = defineType({
     // ── Campos globales ──────────────────────────────
     defineField({
       name: "image",
+      group: "settings",
       title: "Image",
       type: "image",
       options: { hotspot: true },
     }),
     defineField({
       name: "link",
+      group: "settings",
       title: "Live URL",
       type: "url",
     }),
     defineField({
       name: "github",
+      group: "settings",
       title: "GitHub URL",
       type: "url",
     }),
     defineField({
       name: "featured",
+      group: "settings",
       title: "Featured",
       type: "boolean",
       initialValue: false,
     }),
     defineField({
       name: "publishedAt",
+      group: "settings",
       title: "Published At",
       type: "datetime",
     }),
     defineField({
       name: "updatedAt",
+      group: "settings",
       title: "Updated At",
       type: "datetime",
     }),

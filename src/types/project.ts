@@ -1,6 +1,7 @@
 export interface Category {
   label: string;
   slug: string;
+  variant?: "default" | "success" | "warning" | "danger" | "info";
 }
 
 export interface Tag {

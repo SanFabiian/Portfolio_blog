@@ -30,7 +30,7 @@ export function PostRow({ post, featured = false, locale = "en" }: PostRowProps)
         )}
         <div className={styles.featuredBody}>
           <Stack>
-            {post.category && <Badge variant="default">{post.category.label}</Badge>}
+            {post.category && <Badge variant={post.category.variant ?? "default"}>{post.category.label}</Badge>}
             <div className={styles.titleRow}>
               <h3 className={styles.title}>{post.title}</h3>
               <ArrowRight size={18} className={styles.arrow} />
@@ -69,7 +69,7 @@ export function PostRow({ post, featured = false, locale = "en" }: PostRowProps)
       <div className={styles.right}>
         {post.category && (
           <div>
-            <Badge variant="default">{post.category.label}</Badge>
+            <Badge variant={post.category.variant ?? "default"}>{post.category.label}</Badge>
           </div>
         )}
         <div className={styles.titleRow}>

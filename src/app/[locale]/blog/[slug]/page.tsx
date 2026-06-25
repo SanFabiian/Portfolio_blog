@@ -7,6 +7,7 @@ import { Stack } from "@/components/layout/Stack";
 import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { Tag } from "@/components/ui/Tag";
+import { Badge } from "@/components/ui/Badge";
 import { PortableText } from "@/components/ui/PortableText/PortableText";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
@@ -60,7 +61,7 @@ export default async function BlogPostPage({
 
   return (
     <Container as="main">
-      <Section spacing="lg">
+      <Section spacing="lg" type="reading">
         <Stack align="center">
         <div className={styles.back}>
           <Link href="/blog" className={styles.backLink}>
@@ -69,13 +70,16 @@ export default async function BlogPostPage({
           </Link>
         </div>
           <div className={styles.header}>
-            {post.tags && post.tags.length > 0 && (
-              <Stack direction="row" gap="sm" wrap="wrap">
-                {post.tags.map((tag) => (
-                  <Tag key={tag.slug}>{tag.label}</Tag>
-                ))}
-              </Stack>
-            )}
+            <Stack direction="row" align="center" gap="sm" wrap="wrap">
+              {post.category && (
+                <Badge variant={post.category.variant ?? "default"}>
+                  {post.category.label}
+                </Badge>
+              )}
+              {post.tags?.map((tag) => (
+                <Tag key={tag.slug}>{tag.label}</Tag>
+              ))}
+            </Stack>
             <Heading level="h1">{post.title}</Heading>
             <Text color="muted" font="prose">{post.excerpt}</Text>
             <Stack direction="row" align="center" gap="md" wrap="wrap">

@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import styles from "./Section.module.scss";
 
-type SectionSpacing = "sm" | "md" | "lg" | "xl";
-
+type SectionSpacing = "inherit" | "none" | "sm" | "md" | "lg" | "xl";
+type SectionType = "full" | "reading";
 export interface SectionProps {
   children: React.ReactNode;
   spacing?: SectionSpacing;
@@ -10,6 +10,7 @@ export interface SectionProps {
   background?: string;
   className?: string;
   id?: string;
+  type?: SectionType;
   // Allows rendering as <section> (default) or <div> when nesting
   as?: "section" | "div";
 }
@@ -21,6 +22,7 @@ export function Section({
   background,
   className,
   id,
+  type,
   as: Component = "section",
 }: SectionProps) {
   return (
@@ -30,6 +32,7 @@ export function Section({
         styles.section,
         styles[`spacing-${spacing}`],
         gap && styles[`gap-${gap}`],
+        type && styles[`type-${type}`],
         className
       )}
       style={background ? { background } : undefined}
